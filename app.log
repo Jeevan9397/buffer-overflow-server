@@ -1,0 +1,21 @@
+nohup: ignoring input
+2025-06-20 17:59:11 Server starting
+2025-06-20 17:59:11 Server starting
+Server has been successfully started on port 8080
+(2025-06-20 15:59:11) [INFO    ] Crow/master server is running at http://0.0.0.0:8080 using 4 threads
+(2025-06-20 15:59:11) [INFO    ] Call `app.loglevel(crow::LogLevel::Warning)` to hide Info level logs.
+(2025-06-20 15:59:33) [INFO    ] Request: 192.168.178.154:55310 0x1a145c0 HTTP/1.1 GET /
+(2025-06-20 15:59:33) [INFO    ] Response: 0x1a145c0 / 200 0
+(2025-06-20 15:59:33) [INFO    ] Response: 0x1a145c0 /favicon.ico 404 0
+(2025-06-20 16:00:35) [INFO    ] Response: 0x7f4764002260 /api 404 0
+2025-06-20 18:00:41 Received GET /api/hello
+(2025-06-20 16:00:41) [INFO    ] Request: 192.168.178.154:55338 0x7f47640037f0 HTTP/1.1 GET /api/hello
+2025-06-20 18:00:41 Received GET /api/hello
+(2025-06-20 16:00:41) [INFO    ] Response: 0x7f47640037f0 /api/hello 200 0
+(2025-06-20 16:01:56) [INFO    ] Request: 192.168.178.150:55528 0x7f4764002260 HTTP/1.1 GET /
+(2025-06-20 16:01:56) [INFO    ] Response: 0x7f4764002260 / 200 0
+(2025-06-20 16:01:56) [INFO    ] Response: 0x7f4764002260 /favicon.ico 404 0
+2025-06-20 18:02:13 Received GET /api/hello
+(2025-06-20 16:02:13) [INFO    ] Request: 192.168.178.150:55540 0x7f47640037f0 HTTP/1.1 GET /api/hello
+2025-06-20 18:02:13 Received GET /api/hello
+(2025-06-20 16:02:13) [INFO    ] Response: 0x7f47640037f0 /api/hello 200 0

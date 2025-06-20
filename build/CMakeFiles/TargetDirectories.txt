@@ -1,0 +1,3 @@
+/opt/buffer_overflow/build/CMakeFiles/app-server.dir
+/opt/buffer_overflow/build/CMakeFiles/edit_cache.dir
+/opt/buffer_overflow/build/CMakeFiles/rebuild_cache.dir
