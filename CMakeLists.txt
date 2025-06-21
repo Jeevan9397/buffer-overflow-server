@@ -10,7 +10,15 @@ include_directories(
     ${CMAKE_SOURCE_DIR}/include/asio/include
 )
 
+# Find OpenSSL (for SHA256)
+find_package(OpenSSL REQUIRED)
+
 # Build the server executable
 add_executable(app-server
     src/main.cpp
+)
+
+# Link against OpenSSL's crypto library
+target_link_libraries(app-server
+    PRIVATE OpenSSL::Crypto
 )
