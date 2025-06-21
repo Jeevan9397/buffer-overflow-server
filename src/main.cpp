@@ -4,6 +4,7 @@
 #include <chrono>
 #include <ctime>
 #include <iomanip>
+#include <sstream>
 
 // Write timestamped message to both console and log file
 void log(const std::string &msg) {
@@ -24,8 +25,19 @@ int main() {
     log("Server starting");
     crow::SimpleApp app;
 
+    // Serve the login page
+CROW_ROUTE(app, "/")([](){
+    std::ifstream in("UI/login.html");
+    std::ostringstream ss;
+    ss << in.rdbuf();
+    auto res = crow::response(ss.str());
+    res.set_header("Content-Type", "text/html");
+    return res;
+});
+
+
     // Health-check route
-    CROW_ROUTE(app, "/")([](){
+    CROW_ROUTE(app, "/health")([](){
         return "Server running";
     });
 

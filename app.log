@@ -19,3 +19,43 @@ Server has been successfully started on port 8080
 (2025-06-20 16:02:13) [INFO    ] Request: 192.168.178.150:55540 0x7f47640037f0 HTTP/1.1 GET /api/hello
 2025-06-20 18:02:13 Received GET /api/hello
 (2025-06-20 16:02:13) [INFO    ] Response: 0x7f47640037f0 /api/hello 200 0
+nohup: ignoring input
+2025-06-21 09:16:11 Server starting
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  handler already exists for /
+nohup: ignoring input
+2025-06-21 09:19:46 Server starting
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  handler already exists for /
+nohup: ignoring input
+2025-06-21 09:51:57 Server starting
+2025-06-21 09:51:57 Server starting
+Server has been successfully started on port 8080
+(2025-06-21 07:51:57) [INFO    ] Crow/master server is running at http://0.0.0.0:8080 using 4 threads
+(2025-06-21 07:51:57) [INFO    ] Call `app.loglevel(crow::LogLevel::Warning)` to hide Info level logs.
+(2025-06-21 07:52:11) [INFO    ] Request: 192.168.178.154:53037 0x1e02940 HTTP/1.1 GET /
+(2025-06-21 07:52:11) [INFO    ] Response: 0x1e02940 / 200 0
+(2025-06-21 07:52:59) [INFO    ] Response: 0x7f354c002260 /api/login 404 0
+(2025-06-21 07:53:01) [INFO    ] Response: 0x7f354c0037f0 /api/login 404 0
+(2025-06-21 07:53:17) [INFO    ] Response: 0x7f354c002260 /api/login 404 0
+(2025-06-21 07:53:19) [INFO    ] Response: 0x7f354c0037f0 /api/login 404 0
+(2025-06-21 07:53:22) [INFO    ] Response: 0x7f354c002260 /api/login 404 0
+(2025-06-21 07:53:24) [INFO    ] Response: 0x7f354c0037f0 /api/login 404 0
+(2025-06-21 07:53:25) [INFO    ] Response: 0x7f354c002260 /api/login 404 0
+(2025-06-21 07:57:37) [INFO    ] Response: 0x7f354c0037f0 /api/login 404 0
+(2025-06-21 07:57:38) [INFO    ] Response: 0x7f354c002260 /api/login 404 0
+(2025-06-21 07:57:38) [INFO    ] Response: 0x7f354c0037f0 /api/login 404 0
+(2025-06-21 07:57:40) [INFO    ] Response: 0x7f354c002260 /api/login 404 0
+(2025-06-21 07:58:50) [INFO    ] Response: 0x7f354c0037f0 /api/login 404 0
+(2025-06-21 08:04:05) [INFO    ] Response: 0x7f354c002260 /api/login 404 0
+(2025-06-21 08:04:07) [INFO    ] Response: 0x7f354c0037f0 /api/login 404 0
+(2025-06-21 08:04:11) [INFO    ] Response: 0x7f354c002260 /api/login 404 0
+(2025-06-21 08:04:31) [INFO    ] Response: 0x7f354c0037f0 /api/login 404 0
+(2025-06-21 08:05:33) [INFO    ] Request: 192.168.178.154:53622 0x7f354c002260 HTTP/1.1 GET /health
+(2025-06-21 08:05:33) [INFO    ] Response: 0x7f354c002260 /health 200 0
+2025-06-21 10:05:40 Received GET /api/hello
+(2025-06-21 08:05:40) [INFO    ] Request: 192.168.178.154:53628 0x7f354c004c40 HTTP/1.1 GET /api/hello
+2025-06-21 10:05:40 Received GET /api/hello
+(2025-06-21 08:05:40) [INFO    ] Response: 0x7f354c004c40 /api/hello 200 0
+(2025-06-21 08:05:46) [INFO    ] Request: 192.168.178.154:53639 0x7f354c0037f0 HTTP/1.1 GET /
+(2025-06-21 08:05:46) [INFO    ] Response: 0x7f354c0037f0 / 200 0
