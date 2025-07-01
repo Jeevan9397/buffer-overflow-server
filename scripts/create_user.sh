@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
-#
 # Usage: ./scripts/create_user.sh
-#   Prompts for: username, role [admin/user], password
-#   Enforces min-length (8 for admin, 6 for user), then
-#   SHA-256-hashes the password and appends "user,hash,role" to data/auth.csv
 
-DATA_FILE="$(dirname "$0")/../data/auth.csv"
+# Resolve this script’s own directory
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+DATA_FILE="${SCRIPT_DIR}/../data/auth.csv"
+
 mkdir -p "$(dirname "$DATA_FILE")"
 
 read -p "Username: " username
@@ -27,10 +26,9 @@ while (( ${#password} < minlen )); do
   read -sp "Password: " password; echo
 done
 
-# compute sha256 hash
-hash=$(printf '%s' "$password" | openssl dgst -binary -sha256 | xxd -p)
+# Compute the hex hash without newlines
+ hash=$(printf '%s' "$password" | openssl dgst -sha256 | awk '{print $2}')
 
 # append to auth.csv
 echo "${username},${hash},${role}" >> "$DATA_FILE"
 echo "Created user '$username' with role '$role'."
-

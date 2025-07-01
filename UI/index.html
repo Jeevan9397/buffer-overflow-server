@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="bfApp">
+<head>
+  <meta charset="utf-8">
+  <title>BufferOverflow</title>
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="…"
+        crossorigin="anonymous"/>
+  <style>
+    /* your centering CSS */
+    html, body {height:100%;margin:0;font-family:sans-serif;background:#f0f2f5;}
+    .ng-view {height:100%;display:flex;justify-content:center;align-items:center;}
+  </style>
+</head>
+<body>
+  <div ng-view class="ng-view"></div>
+
+  <!-- AngularJS + routing -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular-route.js"></script>
+  <script src="app.js"></script>
+  <script src="controllers.js"></script>
+</body>
+</html>
