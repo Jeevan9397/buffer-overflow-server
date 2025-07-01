@@ -116,13 +116,18 @@ int main() {
     crow::SimpleApp app;
 
     // Serve login page
-    CROW_ROUTE(app, "/")([](){
-        std::ifstream in("UI/login.html");
-        std::ostringstream ss; ss << in.rdbuf();
-        auto res = crow::response(ss.str());
-        res.set_header("Content-Type","text/html");
-        return res;
-    });
+    // Serve the login page at the root URL
+CROW_ROUTE(app, "/")([](){
+    std::ifstream in("UI/login.html");
+    if (!in) {
+        return crow::response(404, "login.html not found");
+    }
+    std::ostringstream ss;
+    ss << in.rdbuf();
+    auto res = crow::response{ss.str()};
+    res.set_header("Content-Type", "text/html");
+    return res;
+});
 
     // Login API
     CROW_ROUTE(app, "/api/login").methods("POST"_method)

@@ -1,0 +1,10 @@
+2025-07-01 13:01:52 Server starting
+Server listening on port 8080
+(2025-07-01 11:01:52) [INFO    ] Crow/master server is running at http://0.0.0.0:8080 using 4 threads
+(2025-07-01 11:01:52) [INFO    ] Call `app.loglevel(crow::LogLevel::Warning)` to hide Info level logs.
+(2025-07-01 11:04:48) [INFO    ] Request: 10.0.2.2:65389 0x7f2e2c000c20 HTTP/1.1 GET /
+(2025-07-01 11:04:48) [INFO    ] Response: 0x7f2e2c000c20 / 200 0
+(2025-07-01 11:04:48) [INFO    ] Response: 0x7f2e2c000c20 /controllers.js 404 0
+(2025-07-01 11:05:02) [INFO    ] Request: 10.0.2.2:65393 0x7f2e2c0037a0 HTTP/1.1 GET /
+(2025-07-01 11:05:02) [INFO    ] Response: 0x7f2e2c0037a0 /? 200 0
+(2025-07-01 11:05:02) [INFO    ] Response: 0x7f2e2c0037a0 /controllers.js 404 0

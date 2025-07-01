@@ -1,0 +1,31 @@
+<div ng-controller="LoginCtrl">
+  <form ng-submit="login()" style="background:#fff;padding:2rem;border-radius:8px;
+                                   box-shadow:0 4px 12px rgba(0,0,0,.1);width:320px">
+    <h2>Please Sign In</h2>
+
+    <div>
+      <label>Username</label>
+      <input ng-model="user.user" required placeholder="Enter username"/>
+    </div>
+
+    <div style="position:relative;margin-top:1rem">
+      <label>Password</label>
+      <input type="{{user.showPass?'text':'password'}}"
+             ng-model="user.pass"
+             required placeholder="Enter password"
+             style="width:100%;padding:.5rem;border:1px solid #ccc;border-radius:4px"/>
+      <i class="fa"
+         ng-class="{'fa-eye':!user.showPass,'fa-eye-slash':user.showPass}"
+         ng-click="togglePass()"
+         style="position:absolute;right:.75rem;top:2.4rem;cursor:pointer"></i>
+    </div>
+
+    <button type="submit" style="width:100%;margin-top:1rem;
+                                  padding:.75rem;background:#1a73e8;color:#fff;
+                                  border:none;border-radius:4px">
+      Login
+    </button>
+    <p style="color:#c00;text-align:center;margin-top:.75rem"
+       ng-if="error">{{error}}</p>
+  </form>
+</div>

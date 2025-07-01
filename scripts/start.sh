@@ -1,17 +1,24 @@
 #!/usr/bin/env bash
-# Launch the server in the background and tail logs
-BASE_DIR="$(dirname "$0")/.."
-cd "$BASE_DIR"
+# scripts/start.sh
 
-PID_FILE="server.pid"
-LOG_FILE="app.log"
+# Resolve this script’s directory, then the project root:
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ROOT="$(dirname "$SCRIPT_DIR")"
+BIN="$ROOT/build/app-server"
+PIDFILE="$ROOT/server.pid"
+LOGFILE="$ROOT/server-debug.log"
 
-if [ -f "$PID_FILE" ]; then
-  echo "Server already running (PID $(cat $PID_FILE))"
-  exit 1
-fi
+# 1) Tear down any existing instance
+"$ROOT"/scripts/stop.sh
 
-# Start server and redirect output to both console and log
-nohup ./build/app-server 2>&1 | tee -a "$LOG_FILE" &
-echo $! > "$PID_FILE"
-echo "Server started with PID $(cat $PID_FILE)"
+# 2) Move into the project root for correct relative paths
+cd "$ROOT" || { echo " Could not cd to $ROOT"; exit 1; }
+
+# 3) Launch the server in background, logging all output
+nohup "$BIN" > "$LOGFILE" 2>&1 &
+NEWPID=$!
+
+# 4) Record the PID and report
+echo $NEWPID > "$PIDFILE"
+echo " Server started with PID $NEWPID (see $LOGFILE for logs)"
+

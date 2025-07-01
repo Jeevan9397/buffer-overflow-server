@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# scripts/start.sh
+
+ROOT="$(dirname "$0")/.."
+BIN="$ROOT/build/app-server"
+PIDFILE="$ROOT/server.pid"
+
+# Ensure nothing is running
+"$ROOT"/scripts/stop.sh
+
+# Change into the project root path
+cd "$ROOT" || exit 1
+
+# Start in background
+nohup "$BIN" >/dev/null 2>&1 &
+NEWPID=$!
+
+# Record and report
+echo $NEWPID > "$PIDFILE"
+echo "Server started with PID $NEWPID"

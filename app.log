@@ -174,3 +174,29 @@ Server listening on port 8080
 (2025-06-21 19:38:40) [INFO    ] Request: 192.168.178.168:40556 0x7f2858000c20 HTTP/1.1 GET /api/export
 2025-06-21 21:38:40 GET /api/export
 (2025-06-21 19:38:40) [INFO    ] Response: 0x7f2858000c20 /api/export 200 0
+(2025-06-22 20:48:22) [INFO    ] Request: 192.168.178.129:54528 0x7f2858002260 HTTP/1.1 GET /
+(2025-06-22 20:48:22) [INFO    ] Response: 0x7f2858002260 / 200 0
+(2025-06-22 20:48:24) [INFO    ] Request: 192.168.178.129:54528 0x7f2858002260 HTTP/1.1 GET /
+(2025-06-22 20:48:24) [INFO    ] Response: 0x7f2858002260 / 200 0
+nohup: ignoring input
+2025-06-22 22:58:53 Server starting
+2025-06-22 22:58:53 Server starting
+Server listening on port 8080
+(2025-06-22 20:58:53) [ERROR   ] Failed to bind to 0.0.0.0:0 - Address already in use
+(2025-06-22 20:58:53) [ERROR   ] Server startup failed. Aborting run().
+2025-06-22 22:58:53 Server stopping
+2025-06-22 22:58:53 Server stopping
+2025-06-30 14:24:07 Server starting
+2025-06-30 14:28:22 Server stopping
+2025-06-30 14:29:38 Server starting
+2025-06-30 23:39:26 Server stopping
+2025-06-30 23:41:11 Server starting
+2025-06-30 23:57:50 Server stopping
+2025-06-30 23:57:59 Server starting
+2025-07-01 11:14:14 Server starting
+2025-07-01 11:40:35 Server stopping
+2025-07-01 11:40:43 Server starting
+2025-07-01 12:08:36 Server stopping
+2025-07-01 12:08:51 Server starting
+2025-07-01 13:01:28 Server stopping
+2025-07-01 13:01:52 Server starting

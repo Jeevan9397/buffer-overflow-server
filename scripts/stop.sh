@@ -1,14 +1,32 @@
 #!/usr/bin/env bash
-# Stop the server using the PID file
-BASE_DIR="$(dirname "$0")/.."
-cd "$BASE_DIR"
+#
+# scripts/stop.sh
+#
 
-PID_FILE="server.pid"
+# 1) Resolve directories
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ROOT="$(dirname "$SCRIPT_DIR")"
+PIDFILE="$ROOT/server.pid"
 
-if [ ! -f "$PID_FILE" ]; then
-  echo "No PID file found. Is the server running?"
-  exit 1
+echo " Stopping server..."
+
+# 2) Kill the PID in server.pid (if it exists)
+if [[ -f "$PIDFILE" ]]; then
+  PID=$(<"$PIDFILE")
+  if kill -0 "$PID" &>/dev/null; then
+    echo "   → Killing PID $PID from $PIDFILE"
+    kill "$PID"
+  else
+    echo "   → No process $PID; skipping PIDFILE kill"
+  fi
+  rm -f "$PIDFILE"
 fi
 
-kill "$(cat $PID_FILE)" && rm "$PID_FILE"
-echo "Server stopped."
+# 3) Kill any stray app-server processes under the build folder
+PIDS=$(pgrep -f "$ROOT/build/app-server" || true)
+if [[ -n "$PIDS" ]]; then
+  echo "   → Killing stray app-server processes: $PIDS"
+  kill $PIDS
+fi
+
+echo " Server stopped."
