@@ -20,9 +20,14 @@ angular.module('bfApp')
           $scope.error = 'Invalid credentials. Try again.';
         }
       })
-      .catch(_=>{
-        $scope.error = 'Server error – try later.';
-      });
+      .catch(err => {
+  if (err.status === 401) {
+    $scope.error = 'Invalid credentials. Please enter correct username and password.';
+  } else {
+    $scope.error = 'Server error – try later.';
+  }
+});
+
     };
   }
 ])

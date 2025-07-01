@@ -200,3 +200,15 @@ Server listening on port 8080
 2025-07-01 12:08:51 Server starting
 2025-07-01 13:01:28 Server stopping
 2025-07-01 13:01:52 Server starting
+2025-07-01 17:00:07 Server stopping
+2025-07-01 17:06:26 Server starting
+2025-07-01 17:16:01 Server stopping
+2025-07-01 17:17:02 Server starting
+2025-07-01 17:17:33 POST /api/login user=varun success
+2025-07-01 17:17:52 POST /api/login user=varun fail
+2025-07-01 17:18:02 POST /api/login user=varun success
+2025-07-01 17:19:57 POST /api/login user=varun fail
+2025-07-01 17:28:29 POST /api/login user=varun success
+2025-07-01 17:28:59 POST /api/login user=varun fail
+2025-07-01 17:29:03 POST /api/login user=varun fail
+2025-07-01 17:29:10 POST /api/login user=varun success

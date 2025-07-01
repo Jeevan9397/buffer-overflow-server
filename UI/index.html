@@ -7,14 +7,90 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="…"
         crossorigin="anonymous"/>
-  <style>
-    /* your centering CSS */
-    html, body {height:100%;margin:0;font-family:sans-serif;background:#f0f2f5;}
-    .ng-view {height:100%;display:flex;justify-content:center;align-items:center;}
-  </style>
+<style>
+  html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to bottom, #f9f9f9, #eaeaea);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .login-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 380px;
+  }
+
+  .login-card h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #333;
+  }
+
+  label {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 0.3rem;
+    display: block;
+  }
+
+  input[type="text"],
+  input[type="password"],
+  input[type="email"] {
+    width: 100%;
+    padding: 0.65rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    box-sizing: border-box;
+  }
+
+  .password-container {
+    position: relative;
+  }
+
+  .password-container i {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    cursor: pointer;
+  }
+
+  button[type="submit"] {
+    width: 100%;
+    background: #1a73e8;
+    border: none;
+    padding: 0.75rem;
+    font-size: 1rem;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  button[type="submit"]:hover {
+    background: #1669c1;
+  }
+
+  p.error {
+    color: #c00;
+    text-align: center;
+    margin-top: 1rem;
+  }
+</style>
+
+
 </head>
 <body>
-  <div ng-view class="ng-view"></div>
+  <div ng-view ></div>
 
   <!-- AngularJS + routing -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular.min.js"></script>

@@ -1,10 +1,74 @@
-2025-07-01 13:01:52 Server starting
-Server listening on port 8080
-(2025-07-01 11:01:52) [INFO    ] Crow/master server is running at http://0.0.0.0:8080 using 4 threads
-(2025-07-01 11:01:52) [INFO    ] Call `app.loglevel(crow::LogLevel::Warning)` to hide Info level logs.
-(2025-07-01 11:04:48) [INFO    ] Request: 10.0.2.2:65389 0x7f2e2c000c20 HTTP/1.1 GET /
-(2025-07-01 11:04:48) [INFO    ] Response: 0x7f2e2c000c20 / 200 0
-(2025-07-01 11:04:48) [INFO    ] Response: 0x7f2e2c000c20 /controllers.js 404 0
-(2025-07-01 11:05:02) [INFO    ] Request: 10.0.2.2:65393 0x7f2e2c0037a0 HTTP/1.1 GET /
-(2025-07-01 11:05:02) [INFO    ] Response: 0x7f2e2c0037a0 /? 200 0
-(2025-07-01 11:05:02) [INFO    ] Response: 0x7f2e2c0037a0 /controllers.js 404 0
+2025-07-01 17:17:02 Server starting
+Server listening on http://127.0.0.1:8080
+(2025-07-01 15:17:02) [INFO    ] Crow/master server is running at http://0.0.0.0:8080 using 4 threads
+(2025-07-01 15:17:02) [INFO    ] Call `app.loglevel(crow::LogLevel::Warning)` to hide Info level logs.
+(2025-07-01 15:17:11) [INFO    ] Request: 10.0.2.2:52826 0x10331a0 HTTP/1.1 GET /
+(2025-07-01 15:17:11) [INFO    ] Response: 0x10331a0 / 200 0
+(2025-07-01 15:17:11) [INFO    ] Request: 10.0.2.2:52827 0x7f764c000c20 HTTP/1.1 GET /controllers.js
+(2025-07-01 15:17:11) [INFO    ] Response: 0x7f764c000c20 /controllers.js 200 0
+(2025-07-01 15:17:11) [INFO    ] Request: 10.0.2.2:52826 0x10331a0 HTTP/1.1 GET /app.js
+(2025-07-01 15:17:11) [INFO    ] Response: 0x10331a0 /app.js 200 0
+(2025-07-01 15:17:11) [INFO    ] Request: 10.0.2.2:52826 0x10331a0 HTTP/1.1 GET /partials/login.html
+(2025-07-01 15:17:11) [INFO    ] Response: 0x10331a0 /partials/login.html 200 0
+(2025-07-01 15:17:33) [INFO    ] Request: 10.0.2.2:52830 0x7f764c002260 HTTP/1.1 POST /api/login
+2025-07-01 17:17:33 POST /api/login user=varun success
+(2025-07-01 15:17:33) [INFO    ] Response: 0x7f764c002260 /api/login 200 0
+(2025-07-01 15:17:33) [INFO    ] Request: 10.0.2.2:52830 0x7f764c002260 HTTP/1.1 GET /partials/dashboard.html
+(2025-07-01 15:17:33) [INFO    ] Response: 0x7f764c002260 /partials/dashboard.html 200 0
+(2025-07-01 15:17:52) [INFO    ] Request: 10.0.2.2:52831 0x7f764c0037f0 HTTP/1.1 POST /api/login
+2025-07-01 17:17:52 POST /api/login user=varun fail
+(2025-07-01 15:17:52) [INFO    ] Response: 0x7f764c0037f0 /api/login 401 0
+(2025-07-01 15:18:02) [INFO    ] Request: 10.0.2.2:52832 0x7f764c002260 HTTP/1.1 POST /api/login
+2025-07-01 17:18:02 POST /api/login user=varun success
+(2025-07-01 15:18:02) [INFO    ] Response: 0x7f764c002260 /api/login 200 0
+(2025-07-01 15:19:57) [INFO    ] Request: 10.0.2.2:52846 0x7f764c0037f0 HTTP/1.1 POST /api/login
+2025-07-01 17:19:57 POST /api/login user=varun fail
+(2025-07-01 15:19:57) [INFO    ] Response: 0x7f764c0037f0 /api/login 401 0
+(2025-07-01 15:23:56) [INFO    ] Request: 10.0.2.2:52862 0x7f764c002260 HTTP/1.1 GET /
+(2025-07-01 15:23:56) [INFO    ] Response: 0x7f764c002260 / 200 0
+(2025-07-01 15:23:56) [INFO    ] Request: 10.0.2.2:52863 0x7f764c0037f0 HTTP/1.1 GET /controllers.js
+(2025-07-01 15:23:56) [INFO    ] Response: 0x7f764c0037f0 /controllers.js 200 0
+(2025-07-01 15:23:56) [INFO    ] Request: 10.0.2.2:52862 0x7f764c002260 HTTP/1.1 GET /app.js
+(2025-07-01 15:23:56) [INFO    ] Response: 0x7f764c002260 /app.js 200 0
+(2025-07-01 15:23:56) [INFO    ] Request: 10.0.2.2:52862 0x7f764c002260 HTTP/1.1 GET /partials/login.html
+(2025-07-01 15:23:56) [INFO    ] Response: 0x7f764c002260 /partials/login.html 200 0
+(2025-07-01 15:27:51) [INFO    ] Request: 10.0.2.2:52904 0x7f764c004c40 HTTP/1.1 GET /
+(2025-07-01 15:27:51) [INFO    ] Response: 0x7f764c004c40 / 200 0
+(2025-07-01 15:27:51) [INFO    ] Request: 10.0.2.2:52905 0x7f764c002260 HTTP/1.1 GET /controllers.js
+(2025-07-01 15:27:51) [INFO    ] Response: 0x7f764c002260 /controllers.js 200 0
+(2025-07-01 15:27:51) [INFO    ] Request: 10.0.2.2:52904 0x7f764c004c40 HTTP/1.1 GET /app.js
+(2025-07-01 15:27:51) [INFO    ] Response: 0x7f764c004c40 /app.js 200 0
+(2025-07-01 15:27:51) [INFO    ] Request: 10.0.2.2:52904 0x7f764c004c40 HTTP/1.1 GET /partials/login.html
+(2025-07-01 15:27:51) [INFO    ] Response: 0x7f764c004c40 /partials/login.html 200 0
+(2025-07-01 15:28:29) [INFO    ] Request: 10.0.2.2:52910 0x7f764c0037f0 HTTP/1.1 POST /api/login
+2025-07-01 17:28:29 POST /api/login user=varun success
+(2025-07-01 15:28:29) [INFO    ] Response: 0x7f764c0037f0 /api/login 200 0
+(2025-07-01 15:28:29) [INFO    ] Request: 10.0.2.2:52910 0x7f764c0037f0 HTTP/1.1 GET /partials/dashboard.html
+(2025-07-01 15:28:29) [INFO    ] Response: 0x7f764c0037f0 /partials/dashboard.html 200 0
+(2025-07-01 15:28:41) [INFO    ] Request: 10.0.2.2:52911 0x7f764c002260 HTTP/1.1 GET /
+(2025-07-01 15:28:41) [INFO    ] Response: 0x7f764c002260 / 200 0
+(2025-07-01 15:28:41) [INFO    ] Request: 10.0.2.2:52912 0x7f764c0037f0 HTTP/1.1 GET /controllers.js
+(2025-07-01 15:28:41) [INFO    ] Response: 0x7f764c0037f0 /controllers.js 200 0
+(2025-07-01 15:28:41) [INFO    ] Request: 10.0.2.2:52911 0x7f764c002260 HTTP/1.1 GET /app.js
+(2025-07-01 15:28:41) [INFO    ] Response: 0x7f764c002260 /app.js 200 0
+(2025-07-01 15:28:41) [INFO    ] Request: 10.0.2.2:52911 0x7f764c002260 HTTP/1.1 GET /partials/dashboard.html
+(2025-07-01 15:28:41) [INFO    ] Response: 0x7f764c002260 /partials/dashboard.html 200 0
+(2025-07-01 15:28:45) [INFO    ] Request: 10.0.2.2:52911 0x7f764c002260 HTTP/1.1 GET /
+(2025-07-01 15:28:45) [INFO    ] Response: 0x7f764c002260 / 200 0
+(2025-07-01 15:28:45) [INFO    ] Request: 10.0.2.2:52912 0x7f764c0037f0 HTTP/1.1 GET /controllers.js
+(2025-07-01 15:28:45) [INFO    ] Response: 0x7f764c0037f0 /controllers.js 200 0
+(2025-07-01 15:28:45) [INFO    ] Request: 10.0.2.2:52911 0x7f764c002260 HTTP/1.1 GET /app.js
+(2025-07-01 15:28:45) [INFO    ] Response: 0x7f764c002260 /app.js 200 0
+(2025-07-01 15:28:45) [INFO    ] Request: 10.0.2.2:52911 0x7f764c002260 HTTP/1.1 GET /partials/login.html
+(2025-07-01 15:28:45) [INFO    ] Response: 0x7f764c002260 /partials/login.html 200 0
+(2025-07-01 15:28:59) [INFO    ] Request: 10.0.2.2:52914 0x7f764c004c40 HTTP/1.1 POST /api/login
+2025-07-01 17:28:59 POST /api/login user=varun fail
+(2025-07-01 15:28:59) [INFO    ] Response: 0x7f764c004c40 /api/login 401 0
+(2025-07-01 15:29:03) [INFO    ] Request: 10.0.2.2:52914 0x7f764c004c40 HTTP/1.1 POST /api/login
+2025-07-01 17:29:03 POST /api/login user=varun fail
+(2025-07-01 15:29:03) [INFO    ] Response: 0x7f764c004c40 /api/login 401 0
+(2025-07-01 15:29:10) [INFO    ] Request: 10.0.2.2:52915 0x7f764c002260 HTTP/1.1 POST /api/login
+2025-07-01 17:29:10 POST /api/login user=varun success
+(2025-07-01 15:29:10) [INFO    ] Response: 0x7f764c002260 /api/login 200 0
+(2025-07-01 15:29:10) [INFO    ] Request: 10.0.2.2:52915 0x7f764c002260 HTTP/1.1 GET /partials/dashboard.html
+(2025-07-01 15:29:10) [INFO    ] Response: 0x7f764c002260 /partials/dashboard.html 200 0
