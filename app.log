@@ -222,3 +222,5 @@ Server listening on port 8080
 2025-07-02 11:29:56 POST /api/login user=ravi success
 2025-07-02 18:19:27 Server starting
 2025-07-02 18:19:51 POST /api/login user=ravi success
+2025-07-02 19:33:24 Added customer id=3
+2025-07-02 19:49:44 Added customer id=4
