@@ -31,6 +31,23 @@ angular.module('bfApp')
     };
   }
 ])
-.controller('DashboardCtrl', ['$scope', function($scope){
-  $scope.msg = "Welcome to the dashboard!";
-}]);
+.controller('DashboardCtrl', ['$scope', '$http', '$location', function($scope, $http, $location) {
+  $scope.customers = [];
+
+  $scope.logout = () => {
+    $location.path('/login');
+  };
+
+  $scope.exportData = () => {
+    window.open('/api/export', '_blank');
+  };
+
+  $scope.fetchCustomers = () => {
+    $http.get('/api/customers')
+      .then(resp => $scope.customers = resp.data.customers)
+      .catch(_ => alert("Failed to load customers"));
+  };
+
+  $scope.fetchCustomers();  // Initial load
+}])
+
