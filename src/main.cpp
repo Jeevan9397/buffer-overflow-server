@@ -10,7 +10,8 @@
 #include <algorithm>
 
 // ------------------- Utility Functions -------------------
-void log(const std::string &msg) {
+void log(const std::string &msg)
+{
     auto now = std::chrono::system_clock::now();
     auto tt = std::chrono::system_clock::to_time_t(now);
     std::ostringstream ots;
@@ -21,9 +22,10 @@ void log(const std::string &msg) {
     f << ots.str();
 }
 
-std::string sha256(const std::string &in) {
+std::string sha256(const std::string &in)
+{
     unsigned char hash[SHA256_DIGEST_LENGTH];
-    SHA256(reinterpret_cast<const unsigned char*>(in.data()), in.size(), hash);
+    SHA256(reinterpret_cast<const unsigned char *>(in.data()), in.size(), hash);
     std::ostringstream o;
     o << std::hex << std::setfill('0');
     for (int i = 0; i < SHA256_DIGEST_LENGTH; ++i)
@@ -31,23 +33,29 @@ std::string sha256(const std::string &in) {
     return o.str();
 }
 
-bool ends_with(const std::string& str, const std::string& suffix) {
+bool ends_with(const std::string &str, const std::string &suffix)
+{
     return str.size() >= suffix.size() &&
            str.compare(str.size() - suffix.size(), suffix.size(), suffix) == 0;
 }
 
-bool check_credentials(const std::string &user, const std::string &pass) {
+bool check_credentials(const std::string &user, const std::string &pass)
+{
     std::ifstream f("data/auth.csv");
     std::string line;
-    while (std::getline(f, line)) {
-        if (line.empty()) continue;
+    while (std::getline(f, line))
+    {
+        if (line.empty())
+            continue;
         auto p = line.find(',');
-        if (p == std::string::npos) continue;
-        if (line.substr(0, p) != user) continue;
+        if (p == std::string::npos)
+            continue;
+        if (line.substr(0, p) != user)
+            continue;
         auto q = line.find(',', p + 1);
         std::string stored_hash = (q == std::string::npos)
-            ? line.substr(p + 1)
-            : line.substr(p + 1, q - p - 1);
+                                      ? line.substr(p + 1)
+                                      : line.substr(p + 1, q - p - 1);
         if (stored_hash == sha256(pass))
             return true;
     }
@@ -55,7 +63,8 @@ bool check_credentials(const std::string &user, const std::string &pass) {
 }
 
 // ------------------- Customer Model -------------------
-struct Customer {
+struct Customer
+{
     int id;
     std::string name, father, nationality, dob;
     std::string birth_village, birth_district, birth_province;
@@ -63,38 +72,44 @@ struct Customer {
     std::string mobile, email;
 };
 
-std::vector<Customer> load_customers() {
+std::vector<Customer> load_customers()
+{
     std::vector<Customer> out;
     std::ifstream f("data/customers.csv");
     std::string line;
-    while (std::getline(f, line)) {
-        if (line.empty()) continue;
+    while (std::getline(f, line))
+    {
+        if (line.empty())
+            continue;
         std::istringstream ss(line);
         Customer c;
         std::string fld;
-        std::getline(ss, fld, ','); c.id = std::stoi(fld);
-        std::getline(ss, c.name,   ',');
+        std::getline(ss, fld, ',');
+        c.id = std::stoi(fld);
+        std::getline(ss, c.name, ',');
         std::getline(ss, c.father, ',');
         std::getline(ss, c.nationality, ',');
-        std::getline(ss, c.dob,    ',');
-        std::getline(ss, c.birth_village,    ',');
-        std::getline(ss, c.birth_district,   ',');
-        std::getline(ss, c.birth_province,   ',');
+        std::getline(ss, c.dob, ',');
+        std::getline(ss, c.birth_village, ',');
+        std::getline(ss, c.birth_district, ',');
+        std::getline(ss, c.birth_province, ',');
         std::getline(ss, c.street, ',');
-        std::getline(ss, c.city,   ',');
+        std::getline(ss, c.city, ',');
         std::getline(ss, c.home_district, ',');
         std::getline(ss, c.home_province, ',');
         std::getline(ss, c.mobile, ',');
-        std::getline(ss, c.email,  '\n');
+        std::getline(ss, c.email, '\n');
         out.push_back(std::move(c));
     }
     return out;
 }
 
-void save_customers(const std::vector<Customer>& v) {
+void save_customers(const std::vector<Customer> &v)
+{
     std::ofstream f("data/customers.csv");
-    for (const auto &c : v) {
-        f << c.id << "," << c.name << "," << c.father << "," << c.nationality << "," 
+    for (const auto &c : v)
+    {
+        f << c.id << "," << c.name << "," << c.father << "," << c.nationality << ","
           << c.dob << "," << c.birth_village << "," << c.birth_district << ","
           << c.birth_province << "," << c.street << "," << c.city << ","
           << c.home_district << "," << c.home_province << ","
@@ -103,63 +118,35 @@ void save_customers(const std::vector<Customer>& v) {
 }
 
 // ------------------- Main Application -------------------
-int main() {
+int main()
+{
     log("Server starting");
     crow::SimpleApp app;
 
     // Serve index.html on /
-    CROW_ROUTE(app, "/")([](){
+    CROW_ROUTE(app, "/")([]()
+                         {
         std::ifstream in("UI/index.html");
         if (!in) return crow::response(404, "index.html not found");
         std::ostringstream ss; ss << in.rdbuf();
         crow::response res{ss.str()};
         res.set_header("Content-Type", "text/html");
-        return res;
-    });
-
-  CROW_ROUTE(app, "/<path>")
-([](const crow::request&, std::string path){
-    std::string full_path = "UI/" + path;
-    std::ifstream in(full_path);
-
-    if (in) {
-        std::ostringstream ss;
-        ss << in.rdbuf();
-        crow::response res{ss.str()};
-
-        // Set MIME type
-        if (ends_with(path, ".html")) res.set_header("Content-Type", "text/html");
-        else if (ends_with(path, ".js")) res.set_header("Content-Type", "application/javascript");
-        else if (ends_with(path, ".css")) res.set_header("Content-Type", "text/css");
-
-        return res;
-    }
-
-    // Fallback: let Angular handle the route
-    std::ifstream fallback("UI/index.html");
-    if (!fallback) return crow::response(404, "index.html not found");
-    std::ostringstream ss; ss << fallback.rdbuf();
-    crow::response res{ss.str()};
-    res.set_header("Content-Type", "text/html");
-    return res;
-});
-
+        return res; });
 
     // Login API
-    CROW_ROUTE(app, "/api/login").methods("POST"_method)
-    ([](const crow::request &req){
+    CROW_ROUTE(app, "/api/login").methods("POST"_method)([](const crow::request &req)
+                                                         {
         auto js = crow::json::load(req.body);
         std::string user = js["user"].s();
         bool ok = check_credentials(user, js["pass"].s());
         log("POST /api/login user=" + user + (ok ? " success" : " fail"));
         crow::json::wvalue r;
         r["status"] = ok ? "ok" : "error";
-        return crow::response(ok ? 200 : 401, r);
-    });
+        return crow::response(ok ? 200 : 401, r); });
 
     // GET all customers
-    CROW_ROUTE(app, "/api/customers").methods("GET"_method)
-    ([](){
+    CROW_ROUTE(app, "/api/customers").methods("GET"_method)([]()
+                                                            {
         auto customers = load_customers();
         crow::json::wvalue r;
         r["customers"] = crow::json::wvalue::list();
@@ -176,12 +163,50 @@ int main() {
             o["email"] = c.email;
             arr[idx++] = std::move(o);
         }
-        return crow::response{r};
-    });
+        return crow::response{r}; });
+
+        // PUT update customer by ID
+CROW_ROUTE(app, "/api/customers/<int>").methods("PUT"_method)
+([](const crow::request& req, int id) {
+    auto js = crow::json::load(req.body);
+    if (!js) return crow::response(400, "Invalid JSON");
+
+    auto customers = load_customers();
+    bool found = false;
+
+    for (auto& c : customers) {
+        if (c.id == id) {
+            c.name = js["name"].s();
+            c.father = js["father"].s();
+            c.nationality = js["nationality"].s();
+            c.dob = js["dob"].s();
+            c.birth_village = js["birth_village"].s();
+            c.birth_district = js["birth_district"].s();
+            c.birth_province = js["birth_province"].s();
+            c.street = js["street"].s();
+            c.city = js["city"].s();
+            c.home_district = js["home_district"].s();
+            c.home_province = js["home_province"].s();
+            c.mobile = js["mobile"].s();
+            c.email = js["email"].s();
+            found = true;
+            break;
+        }
+    }
+
+    if (!found) {
+        return crow::response(404, "Customer not found");
+    }
+
+    save_customers(customers);
+    log("Updated customer id=" + std::to_string(id));
+    return crow::response(200, "Customer updated");
+});
+
 
     // POST new customer
-    CROW_ROUTE(app, "/api/customers").methods("POST"_method)
-    ([](const crow::request &req){
+    CROW_ROUTE(app, "/api/customers").methods("POST"_method)([](const crow::request &req)
+                                                             {
         auto js = crow::json::load(req.body);
         auto v = load_customers();
         int nid = v.empty() ? 1 : v.back().id + 1;
@@ -196,69 +221,49 @@ int main() {
         v.push_back(std::move(c));
         save_customers(v);
         log("Added customer id=" + std::to_string(nid));
-        return crow::response{201};
-    });
+        return crow::response{201}; });
 
-    // PUT update customer
-    CROW_ROUTE(app, "/api/customers/<int>").methods("PUT"_method)
-    ([](const crow::request &req, crow::response &res, int id){
-        auto js = crow::json::load(req.body);
-        auto v  = load_customers();
-        bool found = false;
-        for (auto &c: v) {
-            if (c.id == id) {
-                c.name = js["name"].s(); c.father = js["father"].s();
-                c.nationality = js["nationality"].s(); c.dob = js["dob"].s();
-                c.birth_village = js["birth_village"].s(); c.birth_district = js["birth_district"].s();
-                c.birth_province = js["birth_province"].s(); c.street = js["street"].s();
-                c.city = js["city"].s(); c.home_district = js["home_district"].s();
-                c.home_province = js["home_province"].s(); c.mobile = js["mobile"].s();
-                c.email = js["email"].s();
-                found = true;
-                break;
-            }
-        }
-        if (!found) {
-            res.code = 404;
-            res.end();
-            return;
-        }
-        save_customers(v);
-        res.code = 200;
-        res.end();
-    });
-
-    // DELETE customer
-    CROW_ROUTE(app, "/api/customers/<int>").methods("DELETE"_method)
-    ([](const crow::request &req, crow::response &res, int id){
-        auto v = load_customers();
-        auto before = v.size();
-        v.erase(std::remove_if(v.begin(), v.end(),
-            [&](const Customer &c){ return c.id == id; }), v.end());
-        if (v.size() == before) {
-            res.code = 404;
-            res.end();
-            return;
-        }
-        save_customers(v);
-        log("Deleted customer id=" + std::to_string(id));
-        res.code = 200;
-        res.end();
-    });
-
-    // Export
-    CROW_ROUTE(app, "/api/export").methods("GET"_method)
-    ([](){
+    // Export CSV
+    CROW_ROUTE(app, "/api/export").methods("GET"_method)([]()
+                                                         {
         std::ifstream f("data/customers.csv");
         std::ostringstream ss; ss << f.rdbuf();
         auto res = crow::response{ss.str()};
         res.set_header("Content-Type","text/csv");
         res.set_header("Content-Disposition","attachment; filename=\"customers.csv\"");
+        return res; });
+
+    // Catch-all route for Angular paths or assets
+    CROW_ROUTE(app, "/<path>")
+    ([](const crow::request &, std::string path) {
+        std::string full_path = "UI/" + path;
+        std::ifstream in(full_path);
+
+        if (in) {
+            std::ostringstream ss; 
+            ss << in.rdbuf();
+            crow::response res{ss.str()};
+
+            if (ends_with(path, ".html")) res.set_header("Content-Type", "text/html");
+            else if (ends_with(path, ".js")) res.set_header("Content-Type", "application/javascript");
+            else if (ends_with(path, ".css")) res.set_header("Content-Type", "text/css");
+
+            return res;
+        }
+
+        std::ifstream fallback("UI/index.html");
+        if (!fallback) return crow::response(404, "index.html not found");
+        std::ostringstream ss; 
+        ss << fallback.rdbuf();
+        crow::response res{ss.str()};
+        res.set_header("Content-Type", "text/html");
         return res;
     });
 
-    // Health Check
-    CROW_ROUTE(app, "/health")([](){ return "Server running"; });
+    // Health check
+    CROW_ROUTE(app, "/health")([]() {
+        return "Server running";
+    });
 
     std::cout << "Server listening on http://127.0.0.1:8080\n";
     app.bindaddr("0.0.0.0").port(8080).concurrency(4).run();

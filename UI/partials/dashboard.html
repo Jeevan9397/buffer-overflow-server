@@ -6,28 +6,25 @@
   <title>Dashboard</title>
   <link rel="stylesheet" href="all.min.css">
   <style>
-    html,
-    body {
+    html, body {
       margin: 0;
       padding: 0;
       font-family: 'Segoe UI', sans-serif;
       background: #f5f6fa;
       height: 100%;
       width: 100%;
+      overflow: hidden;
     }
 
-    /* Top Bar */
     .topbar {
-      width: 100%;
       display: flex;
       align-items: center;
       justify-content: space-between;
       background-color: #fff;
       padding: 10px 20px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      position: fixed;
+      position: sticky;
       top: 0;
-      left: 0;
       z-index: 1000;
     }
 
@@ -41,11 +38,7 @@
       flex-grow: 1;
       text-align: center;
       color: #222;
-      padding-top: 4px;
-      /* Optional vertical fine-tune */
-      padding-bottom: 4px;
     }
-
 
     .topbar button {
       background-color: #f44336;
@@ -54,7 +47,7 @@
       padding: 8px 16px;
       border-radius: 6px;
       cursor: pointer;
-      margin-right: 30px;
+      margin-left: auto;
     }
 
     .topbar button:hover {
@@ -62,20 +55,22 @@
     }
 
     .container {
-      padding: 0 300px 300px;
-      width: 100%;
-      box-sizing: border-box;
-      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      height: calc(100vh - 60px);
+      padding: 0 20px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
-
 
     .action-buttons {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 12px;
-      margin-top: 10px;
-      margin-bottom: 18px;
+      padding: 16px 0;
+      background: #fff;
+      z-index: 900;
     }
 
     .action-buttons button {
@@ -86,73 +81,46 @@
       font-weight: 500;
       font-size: 14px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
     }
 
-    .btn-add {
-      background-color: #0d6efd;
-    }
+    .btn-add { background-color: #0d6efd; }
+    .btn-edit { background-color: #6c757d; }
+    .btn-delete { background-color: #dc3545; }
+    .btn-duplicate { background-color: #fd7e14; }
+    .btn-import { background-color: #198754; }
+    .btn-export { background-color: #0d6efd; }
 
-    .btn-edit {
-      background-color: #6c757d;
-    }
-
-    .btn-delete {
-      background-color: #dc3545;
-    }
-
-    .btn-duplicate {
-      background-color: #fd7e14;
-    }
-
-    .btn-import {
-      background-color: #198754;
-    }
-
-    .btn-export {
-      background-color: #0d6efd;
+    .scrollable-table-container {
+      flex: 1;
+      overflow-y: auto;
+      border: 1px solid #ccc;
+      background: white;
+      border-radius: 8px;
     }
 
     .dashboard-table {
       width: 100%;
       border-collapse: collapse;
-      border-radius: 8px;
-      overflow: hidden;
-      background-color: #fff;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      table-layout: fixed;
     }
 
     .dashboard-table th,
     .dashboard-table td {
-      padding: 14px 16px;
+      padding: 12px 14px;
       text-align: left;
       border-bottom: 1px solid #eee;
+      word-break: break-word;
+      white-space: normal;
+      vertical-align: top;
     }
 
     .dashboard-table th {
       background-color: #f1f3f5;
       color: #333;
       font-weight: 600;
-    }
-
-    .dashboard-table tr:last-child td {
-      border-bottom: none;
-    }
-
-    @media screen and (max-width: 768px) {
-      .topbar h2 {
-        font-size: 18px;
-      }
-
-      .action-buttons {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .dashboard-table th,
-      .dashboard-table td {
-        padding: 10px;
-      }
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
 
     .modal-overlay {
@@ -173,22 +141,13 @@
       border-radius: 16px;
       width: 90%;
       max-width: 520px;
-      padding: 0;
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
-      overflow: hidden;
       animation: popIn 0.3s ease-in-out;
     }
 
     @keyframes popIn {
-      0% {
-        transform: scale(0.9);
-        opacity: 0;
-      }
-
-      100% {
-        transform: scale(1);
-        opacity: 1;
-      }
+      0% { transform: scale(0.9); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
     }
 
     .modal-header {
@@ -241,24 +200,57 @@
       transition: 0.2s ease-in-out;
     }
 
-    .modal-footer .save-btn {
-      background-color: #4caf50;
-      color: white;
+    .modal-footer .save-btn { background-color: #4caf50; color: white; }
+    .modal-footer .save-btn:hover { background-color: #388e3c; }
+    .modal-footer .cancel-btn { background-color: #f44336; color: white; }
+    .modal-footer .cancel-btn:hover { background-color: #d32f2f; }
+
+    .selected-row {
+      background-color: #e3f2fd;
     }
 
-    .modal-footer .save-btn:hover {
-      background-color: #388e3c;
+    @media screen and (max-width: 768px) {
+      .topbar h2 {
+        font-size: 18px;
+      }
+      .action-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
     }
+    .dashboard-table td {
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 140px; /* Adjust per column type */
+  cursor: default;
+}
 
-    .modal-footer .cancel-btn {
-      background-color: #f44336;
-      color: white;
-    }
+.dashboard-table td:hover {
+  background-color: #f5faff;
+}
 
-    .modal-footer .cancel-btn:hover {
-      background-color: #d32f2f;
-    }
+.dashboard-table td[data-full]:hover::after {
+  content: attr(data-full);
+  position: absolute;
+  white-space: normal;
+  background: #333;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 4px;
+  top: 100%;
+  left: 0;
+  z-index: 9999;
+  min-width: 160px;
+  max-width: 400px;
+  font-size: 13px;
+  pointer-events: none;
+  opacity: 0.95;
+}
+
   </style>
+</head>
 
 <body>
 
@@ -274,63 +266,88 @@
     <!-- Action Buttons -->
     <div class="action-buttons">
       <button class="btn-add" ng-click="add()">+ Add</button>
-      <button class="btn-edit" ng-click="edit()">Edit</button>
+      <button class="btn-edit" ng-click="triggerEdit()">Edit</button>
       <button class="btn-delete" ng-click="delete()">Delete</button>
       <button class="btn-duplicate" ng-click="duplicate()">Duplicate</button>
       <button class="btn-import" ng-click="import()">Import</button>
       <button class="btn-export" ng-click="export()">Export</button>
     </div>
 
-    <!-- Table -->
-    <table class="dashboard-table">
-      <thead>
-        <tr>
-          <th>Full Name</th>
-          <th>Father's Name</th>
-          <th>Nationality</th>
-          <th>Date of Birth</th>
-          <th>Birth Place</th>
-          <th>Home Address</th>
-          <th>Mobile</th>
-          <th>Email</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr ng-repeat="record in records">
-          <td>{{record.name}}</td>
-          <td>{{record.father}}</td>
-          <td>{{record.nationality}}</td>
-          <td>{{record.dob}}</td>
-          <td>{{record.birthplace}}</td>
-          <td>{{record.address}}</td>
-          <td>{{record.mobile}}</td>
-          <td>{{record.email}}</td>
-        </tr>
-      </tbody>
-    </table>
-    <!-- Add Record Modal -->
-    <!-- Add Record Modal -->
-    <div class="modal-overlay" ng-show="showAddModal">
-      <div class="modal-content">
-        <div class="modal-header">
-          Add New Record
-        </div>
-        <div class="modal-body">
-          <input type="text" placeholder="Full Name" ng-model="newRecord.name" />
-          <input type="text" placeholder="Father's Name" ng-model="newRecord.father" />
-          <input type="text" placeholder="Nationality" ng-model="newRecord.nationality" />
-          <input type="date" placeholder="Date of Birth" ng-model="newRecord.dob" />
-          <input type="text" placeholder="Birth Place" ng-model="newRecord.birthplace" />
-          <input type="text" placeholder="Home Address" ng-model="newRecord.address" />
-          <input type="text" placeholder="Mobile" ng-model="newRecord.mobile" />
-          <input type="email" placeholder="Email" ng-model="newRecord.email" />
-        </div>
-        <div class="modal-footer">
-          <button class="save-btn" ng-click="saveRecord()">Save</button>
-          <button class="cancel-btn" ng-click="cancelAdd()">Cancel</button>
-        </div>
+    <!-- Scrollable Table -->
+    <div class="scrollable-table-container">
+      <table class="dashboard-table">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Full Name</th>
+            <th>Father's Name</th>
+            <th>Nationality</th>
+            <th>Date of Birth</th>
+            <th>Birth Place</th>
+            <th>Home Address</th>
+            <th>Mobile</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <!-- <tbody>
+          <tr ng-repeat="record in records" ng-click="selectRecord(record)" ng-dblclick="editRecord(record)"
+            ng-class="{'selected-row': record === selectedRecord}">
+            <td>{{record.id}}</td>
+            <td>{{record.name}}</td>
+            <td>{{record.father}}</td>
+            <td>{{record.nationality}}</td>
+            <td>{{record.dobFormatted}}</td>
+            <td>{{record.birthplace}}</td>
+            <td>{{record.address}}</td>
+            <td>{{record.mobile}}</td>
+            <td>{{record.email}}</td>
+          </tr>
+        </tbody> -->
+        <tbody>
+  <tr ng-repeat="record in records" 
+      ng-click="selectRecord(record)" 
+      ng-dblclick="editRecord(record)" 
+      ng-class="{'selected-row': record === selectedRecord}">
+
+    <td data-full="{{record.id}}">{{record.id}}</td>
+    <td data-full="{{record.name}}">{{record.name}}</td>
+    <td data-full="{{record.father}}">{{record.father}}</td>
+    <td data-full="{{record.nationality}}">{{record.nationality}}</td>
+    <td data-full="{{record.dobFormatted}}">{{record.dobFormatted}}</td>
+    <td data-full="{{record.birthplace}}">{{record.birthplace}}</td>
+    <td data-full="{{record.address}}">{{record.address}}</td>
+    <td data-full="{{record.mobile}}">{{record.mobile}}</td>
+    <td data-full="{{record.email}}">{{record.email}}</td>
+
+  </tr>
+</tbody>
+
+      </table>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal-overlay" ng-show="showAddModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        {{ editing ? 'Edit Record' : 'Add New Record' }}
+      </div>
+      <div class="modal-body">
+        <input type="text" placeholder="Full Name" ng-model="newRecord.name" />
+        <input type="text" placeholder="Father's Name" ng-model="newRecord.father" />
+        <input type="text" placeholder="Nationality" ng-model="newRecord.nationality" />
+        <input type="date" ng-model="newRecord.dob" />
+        <input type="text" placeholder="Birth Place" ng-model="newRecord.birthplace" />
+        <input type="text" placeholder="Home Address" ng-model="newRecord.address" />
+        <input type="text" placeholder="Mobile" ng-model="newRecord.mobile" />
+        <input type="email" placeholder="Email" ng-model="newRecord.email" />
+      </div>
+      <div class="modal-footer">
+        <button class="save-btn" ng-click="saveRecord()">Save</button>
+        <button class="cancel-btn" ng-click="cancelAdd()">Cancel</button>
       </div>
     </div>
+  </div>
 
 </body>
 

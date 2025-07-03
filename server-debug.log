@@ -1,263 +1,146 @@
-2025-07-02 18:19:27 Server starting
+2025-07-03 07:44:50 Server starting
 Server listening on http://127.0.0.1:8080
-(2025-07-02 16:19:27) [INFO    ] Crow/master server is running at http://0.0.0.0:8080 using 4 threads
-(2025-07-02 16:19:27) [INFO    ] Call `app.loglevel(crow::LogLevel::Warning)` to hide Info level logs.
-(2025-07-02 16:19:37) [INFO    ] Request: 10.0.2.2:62594 0xd6e1a0 HTTP/1.1 GET /
-(2025-07-02 16:19:37) [INFO    ] Response: 0xd6e1a0 / 200 0
-(2025-07-02 16:19:37) [INFO    ] Request: 10.0.2.2:62601 0x7fb510000c20 HTTP/1.1 GET /controllers.js
-(2025-07-02 16:19:37) [INFO    ] Request: 10.0.2.2:62594 0xd6e1a0 HTTP/1.1 GET /app.js
-(2025-07-02 16:19:37) [INFO    ] Response: 0x7fb510000c20 /controllers.js 200 0
-(2025-07-02 16:19:37) [INFO    ] Response: 0xd6e1a0 /app.js 200 0
-(2025-07-02 16:19:38) [INFO    ] Request: 10.0.2.2:62594 0xd6e1a0 HTTP/1.1 GET /partials/login.html
-(2025-07-02 16:19:38) [INFO    ] Response: 0xd6e1a0 /partials/login.html 200 0
-(2025-07-02 16:19:38) [INFO    ] Request: 10.0.2.2:62594 0xd6e1a0 HTTP/1.1 GET /favicon.ico
-(2025-07-02 16:19:38) [INFO    ] Response: 0xd6e1a0 /favicon.ico 200 0
-(2025-07-02 16:19:50) [INFO    ] Request: 10.0.2.2:62619 0x7fb510002260 HTTP/1.1 POST /api/login
-2025-07-02 18:19:51 POST /api/login user=ravi success
-(2025-07-02 16:19:51) [INFO    ] Response: 0x7fb510002260 /api/login 200 0
-(2025-07-02 16:19:51) [INFO    ] Request: 10.0.2.2:62619 0x7fb510002260 HTTP/1.1 GET /partials/dashboard.html
-(2025-07-02 16:19:51) [INFO    ] Response: 0x7fb510002260 /partials/dashboard.html 200 0
-(2025-07-02 16:19:51) [INFO    ] Request: 10.0.2.2:62619 0x7fb510002260 HTTP/1.1 GET /all.min.css
-(2025-07-02 16:19:51) [INFO    ] Response: 0x7fb510002260 /all.min.css 200 0
-(2025-07-02 16:19:51) [INFO    ] Request: 10.0.2.2:62619 0x7fb510002260 HTTP/1.1 GET /api/customers
-(2025-07-02 16:19:51) [INFO    ] Response: 0x7fb510002260 /api/customers 200 0
-(2025-07-02 16:19:51) [INFO    ] Request: 10.0.2.2:62620 0x7fb5100037f0 HTTP/1.1 GET /images/ue-logo.png
-(2025-07-02 16:19:51) [INFO    ] Response: 0x7fb5100037f0 /images/ue-logo.png 200 0
-(2025-07-02 16:19:51) [INFO    ] Request: 10.0.2.2:62620 0x7fb5100037f0 HTTP/1.1 GET /favicon.ico
-(2025-07-02 16:19:51) [INFO    ] Response: 0x7fb5100037f0 /favicon.ico 200 0
-(2025-07-02 16:47:13) [INFO    ] Request: 10.0.2.2:63450 0x7fb510004c40 HTTP/1.1 GET /
-(2025-07-02 16:47:13) [INFO    ] Response: 0x7fb510004c40 / 200 0
-(2025-07-02 16:47:13) [INFO    ] Request: 10.0.2.2:63457 0x7fb5100037f0 HTTP/1.1 GET /controllers.js
-(2025-07-02 16:47:13) [INFO    ] Response: 0x7fb5100037f0 /controllers.js 200 0
-(2025-07-02 16:47:13) [INFO    ] Request: 10.0.2.2:63450 0x7fb510004c40 HTTP/1.1 GET /app.js
-(2025-07-02 16:47:13) [INFO    ] Response: 0x7fb510004c40 /app.js 200 0
-(2025-07-02 16:47:13) [INFO    ] Request: 10.0.2.2:63450 0x7fb510004c40 HTTP/1.1 GET /partials/dashboard.html
-(2025-07-02 16:47:13) [INFO    ] Response: 0x7fb510004c40 /partials/dashboard.html 200 0
-(2025-07-02 16:47:13) [INFO    ] Request: 10.0.2.2:63450 0x7fb510004c40 HTTP/1.1 GET /favicon.ico
-(2025-07-02 16:47:13) [INFO    ] Request: 10.0.2.2:63457 0x7fb5100037f0 HTTP/1.1 GET /images/ue-logo.png(2025-07-02 16:47:13) [INFO    ] Request: 10.0.2.2:63458 0x7fb510002260 HTTP/1.1 GET /all.min.css
-(2025-07-02 16:47:13) [INFO    ] Response: 0x7fb510002260 /all.min.css 200 0
+(2025-07-03 05:44:50) [INFO    ] Crow/master server is running at http://0.0.0.0:8080 using 4 threads
+(2025-07-03 05:44:50) [INFO    ] Call `app.loglevel(crow::LogLevel::Warning)` to hide Info level logs.
+(2025-07-03 05:45:03) [INFO    ] Request: 10.0.2.2:53517 0x170bbb0 HTTP/1.1 GET /
+(2025-07-03 05:45:03) [INFO    ] Response: 0x170bbb0 / 200 0
+(2025-07-03 05:45:03) [INFO    ] Request: 10.0.2.2:53518 0x7f93bc000c20 HTTP/1.1 GET /controllers.js
+(2025-07-03 05:45:03) [INFO    ] Response: 0x7f93bc000c20 /controllers.js 200 0
+(2025-07-03 05:45:03) [INFO    ] Request: 10.0.2.2:53517 0x170bbb0 HTTP/1.1 GET /app.js
+(2025-07-03 05:45:03) [INFO    ] Response: 0x170bbb0 /app.js 200 0
+(2025-07-03 05:45:03) [INFO    ] Request: 10.0.2.2:53517 0x170bbb0 HTTP/1.1 GET /partials/login.html
+(2025-07-03 05:45:03) [INFO    ] Response: 0x170bbb0 /partials/login.html 200 0
+(2025-07-03 05:45:03) [INFO    ] Request: 10.0.2.2:53517 0x170bbb0 HTTP/1.1 GET /all.min.css
+(2025-07-03 05:45:03) [INFO    ] Response: 0x170bbb0 /all.min.css 200 0
+(2025-07-03 05:45:03) [INFO    ] Request: 10.0.2.2:53517 0x170bbb0 HTTP/1.1 GET /favicon.ico
+(2025-07-03 05:45:03) [INFO    ] Response: 0x170bbb0 /favicon.ico 200 0
+(2025-07-03 05:45:18) [INFO    ] Request: 10.0.2.2:53522 0x7f93bc002260 HTTP/1.1 POST /api/login
+2025-07-03 07:45:18 POST /api/login user=jvn success
+(2025-07-03 05:45:18) [INFO    ] Response: 0x7f93bc002260 /api/login 200 0
+(2025-07-03 05:45:18) [INFO    ] Request: 10.0.2.2:53522 0x7f93bc002260 HTTP/1.1 GET /partials/dashboard.html
+(2025-07-03 05:45:18) [INFO    ] Response: 0x7f93bc002260 /partials/dashboard.html 200 0
+(2025-07-03 05:45:18) [INFO    ] Request: 10.0.2.2:53522 0x7f93bc002260 HTTP/1.1 GET /all.min.css
+(2025-07-03 05:45:18) [INFO    ] Response: 0x7f93bc002260 /all.min.css 200 0
+(2025-07-03 05:45:18) [INFO    ] Request: 10.0.2.2:53523 0x7f93bc0037f0 HTTP/1.1 GET /api/customers
+(2025-07-03 05:45:18) [INFO    ] Response: 0x7f93bc0037f0 /api/customers 200 0
+(2025-07-03 05:45:18) [INFO    ] Request: 10.0.2.2:53524 0x7f93bc004c40 HTTP/1.1 GET /images/ue-logo.png
+(2025-07-03 05:45:18) [INFO    ] Response: 0x7f93bc004c40 /images/ue-logo.png 200 0
+(2025-07-03 05:45:18) [INFO    ] Request: 10.0.2.2:53525 0x7f93bc006090 HTTP/1.1 GET /favicon.ico
+(2025-07-03 05:45:18) [INFO    ] Response: 0x7f93bc006090 /favicon.ico 200 0
+(2025-07-03 05:45:55) [INFO    ] Request: 10.0.2.2:53529 0x7f93bc0074e0 HTTP/1.1 PUT /api/customers/2
+2025-07-03 07:45:55 Updated customer id=2
+(2025-07-03 05:45:55) [INFO    ] Response: 0x7f93bc0074e0 /api/customers/2 200 0
+(2025-07-03 05:45:55) [INFO    ] Request: 10.0.2.2:53529 0x7f93bc0074e0 HTTP/1.1 GET /api/customers
+(2025-07-03 05:45:55) [INFO    ] Response: 0x7f93bc0074e0 /api/customers 200 0
+(2025-07-03 05:46:26) [INFO    ] Request: 10.0.2.2:53533 0x7f93bc002260 HTTP/1.1 PUT /api/customers/2
+2025-07-03 07:46:26 Updated customer id=2
+(2025-07-03 05:46:26) [INFO    ] Response: 0x7f93bc002260 /api/customers/2 200 0
+(2025-07-03 05:46:26) [INFO    ] Request: 10.0.2.2:53533 0x7f93bc002260 HTTP/1.1 GET /api/customers
+(2025-07-03 05:46:26) [INFO    ] Response: 0x7f93bc002260 /api/customers 200 0
+(2025-07-03 05:47:00) [INFO    ] Request: 10.0.2.2:53536 0x7f93bc0037f0 HTTP/1.1 POST /api/customers
+(2025-07-03 05:47:00) [ERROR   ] An uncaught exception occurred: cannot find key: email
+(2025-07-03 05:47:00) [INFO    ] Response: 0x7f93bc0037f0 /api/customers 500 0
+(2025-07-03 05:47:13) [INFO    ] Request: 10.0.2.2:53537 0x7f93bc002260 HTTP/1.1 POST /api/customers
+(2025-07-03 05:47:13) [ERROR   ] An uncaught exception occurred: cannot find key: email
+(2025-07-03 05:47:13) [INFO    ] Response: 0x7f93bc002260 /api/customers 500 0
+(2025-07-03 05:47:55) [INFO    ] Request: 10.0.2.2:53539 0x7f93bc0037f0 HTTP/1.1 POST /api/customers
+2025-07-03 07:47:55 Added customer id=6
+(2025-07-03 05:47:55) [INFO    ] Response: 0x7f93bc0037f0 /api/customers 201 0
+(2025-07-03 05:47:55) [INFO    ] Request: 10.0.2.2:53539 0x7f93bc0037f0 HTTP/1.1 GET /api/customers
+(2025-07-03 05:47:55) [INFO    ] Response: 0x7f93bc0037f0 /api/customers 200 0
+(2025-07-03 05:48:22) [INFO    ] Request: 10.0.2.2:53540 0x7f93bc002260 HTTP/1.1 POST /api/customers
+(2025-07-03 05:48:22) [ERROR   ] An uncaught exception occurred: cannot find key: email
+(2025-07-03 05:48:22) [INFO    ] Response: 0x7f93bc002260 /api/customers 500 0
+(2025-07-03 05:48:32) [INFO    ] Request: 10.0.2.2:53541 0x7f93bc0037f0 HTTP/1.1 POST /api/customers
+2025-07-03 07:48:32 Added customer id=7
+(2025-07-03 05:48:32) [INFO    ] Response: 0x7f93bc0037f0 /api/customers 201 0
+(2025-07-03 05:48:32) [INFO    ] Request: 10.0.2.2:53541 0x7f93bc0037f0 HTTP/1.1 GET /api/customers
+(2025-07-03 05:48:32) [INFO    ] Response: 0x7f93bc0037f0 /api/customers 200 0
+(2025-07-03 05:49:02) [INFO    ] Request: 10.0.2.2:53542 0x7f93bc002260 HTTP/1.1 POST /api/customers
+2025-07-03 07:49:02 Added customer id=8
+(2025-07-03 05:49:02) [INFO    ] Response: 0x7f93bc002260 /api/customers 201 0
+(2025-07-03 05:49:02) [INFO    ] Request: 10.0.2.2:53542 0x7f93bc002260 HTTP/1.1 GET /api/customers
+(2025-07-03 05:49:02) [INFO    ] Response: 0x7f93bc002260 /api/customers 200 0
+(2025-07-03 05:49:34) [INFO    ] Request: 10.0.2.2:53543 0x7f93bc0037f0 HTTP/1.1 POST /api/customers
+2025-07-03 07:49:34 Added customer id=9
+(2025-07-03 05:49:34) [INFO    ] Response: 0x7f93bc0037f0 /api/customers 201 0
+(2025-07-03 05:49:34) [INFO    ] Request: 10.0.2.2:53543 0x7f93bc0037f0 HTTP/1.1 GET /api/customers
+(2025-07-03 05:49:34) [INFO    ] Response: 0x7f93bc0037f0 /api/customers 200 0
+(2025-07-03 06:00:04) [INFO    ] Request: 10.0.2.2:53567 0x7f93bc002260 HTTP/1.1 PUT /api/customers/1
+2025-07-03 08:00:04 Updated customer id=1
+(2025-07-03 06:00:04) [INFO    ] Response: 0x7f93bc002260 /api/customers/1 200 0
+(2025-07-03 06:00:04) [INFO    ] Request: 10.0.2.2:53567 0x7f93bc002260 HTTP/1.1 GET /api/customers
+(2025-07-03 06:00:04) [INFO    ] Response: 0x7f93bc002260 /api/customers 200 0
+(2025-07-03 06:04:38) [INFO    ] Request: 10.0.2.2:53588 0x7f93bc0037f0 HTTP/1.1 GET /
+(2025-07-03 06:04:38) [INFO    ] Response: 0x7f93bc0037f0 / 200 0
+(2025-07-03 06:04:38) [INFO    ] Request: 10.0.2.2:53589 0x7f93bc002260 HTTP/1.1 GET /controllers.js
+(2025-07-03 06:04:38) [INFO    ] Response: 0x7f93bc002260 /controllers.js 200 0
+(2025-07-03 06:04:38) [INFO    ] Request: 10.0.2.2:53588 0x7f93bc0037f0 HTTP/1.1 GET /app.js
+(2025-07-03 06:04:38) [INFO    ] Response: 0x7f93bc0037f0 /app.js 200 0
+(2025-07-03 06:04:38) [INFO    ] Request: 10.0.2.2:53588 0x7f93bc0037f0 HTTP/1.1 GET /partials/dashboard.html
+(2025-07-03 06:04:38) [INFO    ] Response: 0x7f93bc0037f0 /partials/dashboard.html 200 0
+(2025-07-03 06:04:38) [INFO    ] Request: 10.0.2.2:53589 0x7f93bc002260 HTTP/1.1 GET /favicon.ico
+(2025-07-03 06:04:38) [INFO    ] Response: 0x7f93bc002260 /favicon.ico 200 0
+(2025-07-03 06:04:38) [INFO    ] Request: 10.0.2.2:53589 0x7f93bc002260 HTTP/1.1 GET /all.min.css
+(2025-07-03 06:04:38) [INFO    ] Response: 0x7f93bc002260 /all.min.css 200 0
+(2025-07-03 06:04:38) [INFO    ] Request: 10.0.2.2:53588 0x7f93bc0037f0 HTTP/1.1 GET /images/ue-logo.png
+(2025-07-03 06:04:38) [INFO    ] Request: 10.0.2.2:53590 0x7f93bc004c40 HTTP/1.1 GET /api/customers
+(2025-07-03 06:04:38) [INFO    ] Response: 0x7f93bc004c40 /api/customers 200 0
+(2025-07-03 06:04:38) [INFO    ] Response: 0x7f93bc0037f0 /images/ue-logo.png 200 0
+(2025-07-03 06:05:47) [INFO    ] Request: 10.0.2.2:53593 0x7f93bc006090 HTTP/1.1 POST /api/customers
+2025-07-03 08:05:47 Added customer id=10
+(2025-07-03 06:05:47) [INFO    ] Response: 0x7f93bc006090 /api/customers 201 0
+(2025-07-03 06:05:47) [INFO    ] Request: 10.0.2.2:53593 0x7f93bc006090 HTTP/1.1 GET /api/customers
+(2025-07-03 06:05:47) [INFO    ] Response: 0x7f93bc006090 /api/customers 200 0
+(2025-07-03 06:16:15) [INFO    ] Request: 10.0.2.2:53648 0x7f93bc002260 HTTP/1.1 GET /
+(2025-07-03 06:16:15) [INFO    ] Response: 0x7f93bc002260 / 200 0
+(2025-07-03 06:16:15) [INFO    ] Request: 10.0.2.2:53648 0x7f93bc002260 HTTP/1.1 GET /app.js
+(2025-07-03 06:16:15) [INFO    ] Response: 0x7f93bc002260 /app.js 200 0
+(2025-07-03 06:16:15) [INFO    ] Request: 10.0.2.2:53649 0x7f93bc003700 HTTP/1.1 GET /controllers.js
+(2025-07-03 06:16:15) [INFO    ] Response: 0x7f93bc003700 /controllers.js 200 0
+(2025-07-03 06:16:15) [INFO    ] Request: 10.0.2.2:53649 0x7f93bc003700 HTTP/1.1 GET /partials/dashboard.html
+(2025-07-03 06:16:15) [INFO    ] Request: 10.0.2.2:53648 0x7f93bc002260 HTTP/1.1 GET /favicon.ico
+(2025-07-03 06:16:15) [INFO    ] Response: 0x7f93bc002260 /favicon.ico 200 0
+(2025-07-03 06:16:15) [INFO    ] Response: 0x7f93bc003700 /partials/dashboard.html 200 0
+(2025-07-03 06:16:15) [INFO    ] Request: 10.0.2.2:53648 0x7f93bc002260 HTTP/1.1 GET /all.min.css
+(2025-07-03 06:16:15) [INFO    ] Response: 0x7f93bc002260 /all.min.css 200 0
+(2025-07-03 06:16:15) [INFO    ] Request: 10.0.2.2:53648 0x7f93bc002260 HTTP/1.1 GET /api/customers
+(2025-07-03 06:16:15) [INFO    ] Response: 0x7f93bc002260 /api/customers 200 0
+(2025-07-03 06:16:15) [INFO    ] Request: 10.0.2.2:53649 0x7f93bc003700 HTTP/1.1 GET /images/ue-logo.png
+(2025-07-03 06:16:15) [INFO    ] Response: 0x7f93bc003700 /images/ue-logo.png 200 0
+(2025-07-03 06:16:57) [INFO    ] Request: 10.0.2.2:53653 0x7f93bc004b50 HTTP/1.1 POST /api/customers
+2025-07-03 08:16:57 Added customer id=11
+(2025-07-03 06:16:57) [INFO    ] Response: 0x7f93bc004b50 /api/customers 201 0
+(2025-07-03 06:16:57) [INFO    ] Request: 10.0.2.2:53653 0x7f93bc004b50 HTTP/1.1 GET /api/customers
+(2025-07-03 06:16:57) [INFO    ] Response: 0x7f93bc004b50 /api/customers 200 0
+(2025-07-03 06:17:22) [INFO    ] Request: 10.0.2.2:53654 0x7f93bc003700 HTTP/1.1 POST /api/customers
+2025-07-03 08:17:22 Added customer id=12
+(2025-07-03 06:17:22) [INFO    ] Response: 0x7f93bc003700 /api/customers 201 0
+(2025-07-03 06:17:22) [INFO    ] Request: 10.0.2.2:53654 0x7f93bc003700 HTTP/1.1 GET /api/customers
+(2025-07-03 06:17:22) [INFO    ] Response: 0x7f93bc003700 /api/customers 200 0
+(2025-07-03 06:31:07) [INFO    ] Request: 10.0.2.2:53757 0x7f93bc002260 HTTP/1.1 GET /
+(2025-07-03 06:31:07) [INFO    ] Response: 0x7f93bc002260 / 200 0
+(2025-07-03 06:31:07) [INFO    ] Request: 10.0.2.2:53758 0x7f93bc003700 HTTP/1.1 GET /controllers.js
+(2025-07-03 06:31:07) [INFO    ] Response: 0x7f93bc003700 /controllers.js 200 0
+(2025-07-03 06:31:07) [INFO    ] Request: 10.0.2.2:53757 0x7f93bc002260 HTTP/1.1 GET /app.js
+(2025-07-03 06:31:07) [INFO    ] Response: 0x7f93bc002260 /app.js 200 0
+(2025-07-03 06:31:07) [INFO    ] Request: 10.0.2.2:53757 0x7f93bc002260 HTTP/1.1 GET /partials/dashboard.html(2025-07-03 06:31:07) [INFO    ] Request: 10.0.2.2:53758 0x7f93bc003700 HTTP/1.1 GET /favicon.ico
+(2025-07-03 06:31:07) [INFO    ] Response: 0x7f93bc003700 /favicon.ico 200 0
 
-(2025-07-02 16:47:13) [INFO    ] Response: 0x7fb5100037f0 /images/ue-logo.png 200 0
-(2025-07-02 16:47:13) [INFO    ] Response: 0x7fb510004c40 /favicon.ico 200 0
-(2025-07-02 16:48:05) [INFO    ] Request: 10.0.2.2:63473 0x7fb510006090 HTTP/1.1 GET /
-(2025-07-02 16:48:05) [INFO    ] Response: 0x7fb510006090 /? 200 0
-(2025-07-02 16:48:06) [INFO    ] Request: 10.0.2.2:63474 0x7fb510002260 HTTP/1.1 GET /controllers.js
-(2025-07-02 16:48:06) [INFO    ] Response: 0x7fb510002260 /controllers.js 200 0
-(2025-07-02 16:48:06) [INFO    ] Request: 10.0.2.2:63473 0x7fb510006090 HTTP/1.1 GET /app.js
-(2025-07-02 16:48:06) [INFO    ] Response: 0x7fb510006090 /app.js 200 0
-(2025-07-02 16:48:06) [INFO    ] Request: 10.0.2.2:63473 0x7fb510006090 HTTP/1.1 GET /partials/dashboard.html
-(2025-07-02 16:48:06) [INFO    ] Response: 0x7fb510006090 /partials/dashboard.html 200 0
-(2025-07-02 16:48:06) [INFO    ] Request: 10.0.2.2:63474 0x7fb510002260 HTTP/1.1 GET /all.min.css
-(2025-07-02 16:48:06) [INFO    ] Response: 0x7fb510002260 /all.min.css 200 0
-(2025-07-02 16:48:06) [INFO    ] Request: 10.0.2.2:63473 0x7fb510006090 HTTP/1.1 GET /images/ue-logo.png(2025-07-02 16:48:06) [INFO    ] Request: 10.0.2.2:63474 0x7fb510002260 HTTP/1.1 GET /favicon.ico
-(2025-07-02 16:48:06) [INFO    ] Response: 0x7fb510002260 /favicon.ico 200 0
-
-(2025-07-02 16:48:06) [INFO    ] Response: 0x7fb510006090 /images/ue-logo.png 200 0
-(2025-07-02 16:48:17) [INFO    ] Request: 10.0.2.2:63542 0x7fb5100037f0 HTTP/1.1 GET /
-(2025-07-02 16:48:17) [INFO    ] Response: 0x7fb5100037f0 /? 200 0
-(2025-07-02 16:48:17) [INFO    ] Request: 10.0.2.2:63549 0x7fb510002260 HTTP/1.1 GET /controllers.js
-(2025-07-02 16:48:17) [INFO    ] Response: 0x7fb510002260 /controllers.js 200 0
-(2025-07-02 16:48:17) [INFO    ] Request: 10.0.2.2:63542 0x7fb5100037f0 HTTP/1.1 GET /app.js
-(2025-07-02 16:48:17) [INFO    ] Response: 0x7fb5100037f0 /app.js 200 0
-(2025-07-02 16:48:17) [INFO    ] Request: 10.0.2.2:63542 0x7fb5100037f0 HTTP/1.1 GET /partials/dashboard.html
-(2025-07-02 16:48:17) [INFO    ] Response: 0x7fb5100037f0 /partials/dashboard.html 200 0
-(2025-07-02 16:48:17) [INFO    ] Request: 10.0.2.2:63549 0x7fb510002260 HTTP/1.1 GET /favicon.ico
-(2025-07-02 16:48:17) [INFO    ] Response: 0x7fb510002260 /favicon.ico 200 0
-(2025-07-02 16:48:17) [INFO    ] Request: 10.0.2.2:63542 0x7fb5100037f0 HTTP/1.1 GET /all.min.css
-(2025-07-02 16:48:17) [INFO    ] Response: 0x7fb5100037f0 /all.min.css 200 0
-(2025-07-02 16:48:17) [INFO    ] Request: 10.0.2.2:63549 0x7fb510002260 HTTP/1.1 GET /images/ue-logo.png
-(2025-07-02 16:48:17) [INFO    ] Response: 0x7fb510002260 /images/ue-logo.png 200 0
-(2025-07-02 16:59:16) [INFO    ] Request: 10.0.2.2:63616 0x7fb510004c40 HTTP/1.1 GET /
-(2025-07-02 16:59:16) [INFO    ] Response: 0x7fb510004c40 /? 200 0
-(2025-07-02 16:59:16) [INFO    ] Request: 10.0.2.2:63616 0x7fb510004c40 HTTP/1.1 GET /app.js
-(2025-07-02 16:59:16) [INFO    ] Response: 0x7fb510004c40 /app.js 200 0
-(2025-07-02 16:59:16) [INFO    ] Request: 10.0.2.2:63623 0x7fb5100037f0 HTTP/1.1 GET /controllers.js
-(2025-07-02 16:59:16) [INFO    ] Response: 0x7fb5100037f0 /controllers.js 200 0
-(2025-07-02 16:59:16) [INFO    ] Request: 10.0.2.2:63623 0x7fb5100037f0 HTTP/1.1 GET /partials/dashboard.html
-(2025-07-02 16:59:16) [INFO    ] Response: 0x7fb5100037f0 /partials/dashboard.html 200 0
-(2025-07-02 16:59:16) [INFO    ] Request: 10.0.2.2:63616 0x7fb510004c40 HTTP/1.1 GET /favicon.ico
-(2025-07-02 16:59:16) [INFO    ] Response: 0x7fb510004c40 /favicon.ico 200 0
-(2025-07-02 16:59:16) [INFO    ] Request: 10.0.2.2:63624 0x7fb510002260 HTTP/1.1 GET /all.min.css
-(2025-07-02 16:59:16) [INFO    ] Response: 0x7fb510002260 /all.min.css 200 0
-(2025-07-02 16:59:16) [INFO    ] Request: 10.0.2.2:63623 0x7fb5100037f0 HTTP/1.1 GET /images/ue-logo.png
-(2025-07-02 16:59:16) [INFO    ] Response: 0x7fb5100037f0 /images/ue-logo.png 200 0
-(2025-07-02 16:59:18) [INFO    ] Request: 10.0.2.2:63623 0x7fb5100037f0 HTTP/1.1 GET /
-(2025-07-02 16:59:18) [INFO    ] Response: 0x7fb5100037f0 /? 200 0
-(2025-07-02 16:59:18) [INFO    ] Request: 10.0.2.2:63624 0x7fb510002260 HTTP/1.1 GET /controllers.js
-(2025-07-02 16:59:18) [INFO    ] Response: 0x7fb510002260 /controllers.js 200 0
-(2025-07-02 16:59:18) [INFO    ] Request: 10.0.2.2:63623 0x7fb5100037f0 HTTP/1.1 GET /app.js
-(2025-07-02 16:59:18) [INFO    ] Response: 0x7fb5100037f0 /app.js 200 0
-(2025-07-02 16:59:18) [INFO    ] Request: 10.0.2.2:63623 0x7fb5100037f0 HTTP/1.1 GET /partials/dashboard.html
-(2025-07-02 16:59:18) [INFO    ] Response: 0x7fb5100037f0 /partials/dashboard.html 200 0
-(2025-07-02 16:59:18) [INFO    ] Request: 10.0.2.2:63624 0x7fb510002260 HTTP/1.1 GET /favicon.ico
-(2025-07-02 16:59:18) [INFO    ] Response: 0x7fb510002260 /favicon.ico 200 0
-(2025-07-02 16:59:18) [INFO    ] Request: 10.0.2.2:63624 0x7fb510002260 HTTP/1.1 GET /all.min.css
-(2025-07-02 16:59:18) [INFO    ] Response: 0x7fb510002260 /all.min.css 200 0
-(2025-07-02 16:59:18) [INFO    ] Request: 10.0.2.2:63623 0x7fb5100037f0 HTTP/1.1 GET /images/ue-logo.png
-(2025-07-02 16:59:18) [INFO    ] Response: 0x7fb5100037f0 /images/ue-logo.png 200 0
-(2025-07-02 16:59:31) [INFO    ] Request: 10.0.2.2:63688 0x7fb510006090 HTTP/1.1 GET /
-(2025-07-02 16:59:31) [INFO    ] Response: 0x7fb510006090 / 200 0
-(2025-07-02 16:59:31) [INFO    ] Request: 10.0.2.2:63688 0x7fb510006090 HTTP/1.1 GET /app.js
-(2025-07-02 16:59:31) [INFO    ] Response: 0x7fb510006090 /app.js 200 0
-(2025-07-02 16:59:31) [INFO    ] Request: 10.0.2.2:63689 0x7fb510002260 HTTP/1.1 GET /controllers.js
-(2025-07-02 16:59:31) [INFO    ] Response: 0x7fb510002260 /controllers.js 200 0
-(2025-07-02 16:59:31) [INFO    ] Request: 10.0.2.2:63688 0x7fb510006090 HTTP/1.1 GET /partials/login.html
-(2025-07-02 16:59:31) [INFO    ] Response: 0x7fb510006090 /partials/login.html 200 0
-(2025-07-02 16:59:31) [INFO    ] Request: 10.0.2.2:63688 0x7fb510006090 HTTP/1.1 GET /favicon.ico
-(2025-07-02 16:59:31) [INFO    ] Response: 0x7fb510006090 /favicon.ico 200 0
-(2025-07-02 16:59:43) [INFO    ] Request: 10.0.2.2:63704 0x7fb5100037f0 HTTP/1.1 GET /
-(2025-07-02 16:59:43) [INFO    ] Response: 0x7fb5100037f0 / 200 0
-(2025-07-02 16:59:43) [INFO    ] Request: 10.0.2.2:63705 0x7fb510002260 HTTP/1.1 GET /controllers.js
-(2025-07-02 16:59:43) [INFO    ] Response: 0x7fb510002260 /controllers.js 200 0
-(2025-07-02 16:59:43) [INFO    ] Request: 10.0.2.2:63704 0x7fb5100037f0 HTTP/1.1 GET /app.js
-(2025-07-02 16:59:43) [INFO    ] Response: 0x7fb5100037f0 /app.js 200 0
-(2025-07-02 16:59:43) [INFO    ] Request: 10.0.2.2:63704 0x7fb5100037f0 HTTP/1.1 GET /partials/login.html
-(2025-07-02 16:59:43) [INFO    ] Request: 10.0.2.2:63705 0x7fb510002260 HTTP/1.1 GET /favicon.ico
-(2025-07-02 16:59:43) [INFO    ] Response: 0x7fb510002260 /favicon.ico 200 0
-(2025-07-02 16:59:43) [INFO    ] Response: 0x7fb5100037f0 /partials/login.html 200 0
-(2025-07-02 17:00:35) [INFO    ] Request: 10.0.2.2:63715 0x7fb510004c40 HTTP/1.1 GET /
-(2025-07-02 17:00:35) [INFO    ] Response: 0x7fb510004c40 /? 200 0
-(2025-07-02 17:00:35) [INFO    ] Request: 10.0.2.2:63715 0x7fb510004c40 HTTP/1.1 GET /app.js
-(2025-07-02 17:00:35) [INFO    ] Response: 0x7fb510004c40 /app.js 200 0
-(2025-07-02 17:00:35) [INFO    ] Request: 10.0.2.2:63719 0x7fb5100037f0 HTTP/1.1 GET /controllers.js
-(2025-07-02 17:00:35) [INFO    ] Response: 0x7fb5100037f0 /controllers.js 200 0
-(2025-07-02 17:00:35) [INFO    ] Request: 10.0.2.2:63715 0x7fb510004c40 HTTP/1.1 GET /partials/login.html
-(2025-07-02 17:00:35) [INFO    ] Response: 0x7fb510004c40 /partials/login.html 200 0
-(2025-07-02 17:00:35) [INFO    ] Request: 10.0.2.2:63715 0x7fb510004c40 HTTP/1.1 GET /favicon.ico
-(2025-07-02 17:00:35) [INFO    ] Response: 0x7fb510004c40 /favicon.ico 200 0
-(2025-07-02 17:00:55) [INFO    ] Request: 10.0.2.2:63729 0x7fb510002260 HTTP/1.1 GET /
-(2025-07-02 17:00:55) [INFO    ] Response: 0x7fb510002260 /? 200 0
-(2025-07-02 17:00:55) [INFO    ] Request: 10.0.2.2:63733 0x7fb5100037f0 HTTP/1.1 GET /controllers.js
-(2025-07-02 17:00:55) [INFO    ] Response: 0x7fb5100037f0 /controllers.js 200 0
-(2025-07-02 17:00:55) [INFO    ] Request: 10.0.2.2:63729 0x7fb510002260 HTTP/1.1 GET /app.js
-(2025-07-02 17:00:55) [INFO    ] Response: 0x7fb510002260 /app.js 200 0
-(2025-07-02 17:00:55) [INFO    ] Request: 10.0.2.2:63733 0x7fb5100037f0 HTTP/1.1 GET /favicon.ico
-(2025-07-02 17:00:55) [INFO    ] Response: 0x7fb5100037f0 /favicon.ico 200 0
-(2025-07-02 17:00:55) [INFO    ] Request: 10.0.2.2:63729 0x7fb510002260 HTTP/1.1 GET /partials/login.html
-(2025-07-02 17:00:55) [INFO    ] Response: 0x7fb510002260 /partials/login.html 200 0
-(2025-07-02 17:00:56) [INFO    ] Request: 10.0.2.2:63729 0x7fb510002260 HTTP/1.1 GET /
-(2025-07-02 17:00:56) [INFO    ] Response: 0x7fb510002260 /? 200 0
-(2025-07-02 17:00:56) [INFO    ] Request: 10.0.2.2:63733 0x7fb5100037f0 HTTP/1.1 GET /controllers.js
-(2025-07-02 17:00:56) [INFO    ] Response: 0x7fb5100037f0 /controllers.js 200 0
-(2025-07-02 17:00:56) [INFO    ] Request: 10.0.2.2:63729 0x7fb510002260 HTTP/1.1 GET /app.js
-(2025-07-02 17:00:56) [INFO    ] Response: 0x7fb510002260 /app.js 200 0
-(2025-07-02 17:00:56) [INFO    ] Request: 10.0.2.2:63729 0x7fb510002260 HTTP/1.1 GET /partials/login.html
-(2025-07-02 17:00:56) [INFO    ] Response: 0x7fb510002260 /partials/login.html 200 0
-(2025-07-02 17:00:56) [INFO    ] Request: 10.0.2.2:63733 0x7fb5100037f0 HTTP/1.1 GET /favicon.ico
-(2025-07-02 17:00:56) [INFO    ] Response: 0x7fb5100037f0 /favicon.ico 200 0
-(2025-07-02 17:03:32) [INFO    ] Request: 10.0.2.2:63756 0x7fb510004c40 HTTP/1.1 GET /
-(2025-07-02 17:03:32) [INFO    ] Response: 0x7fb510004c40 /? 200 0
-(2025-07-02 17:03:32) [INFO    ] Request: 10.0.2.2:63763 0x7fb510002260 HTTP/1.1 GET /controllers.js
-(2025-07-02 17:03:32) [INFO    ] Response: 0x7fb510002260 /controllers.js 200 0
-(2025-07-02 17:03:32) [INFO    ] Request: 10.0.2.2:63756 0x7fb510004c40 HTTP/1.1 GET /app.js
-(2025-07-02 17:03:32) [INFO    ] Response: 0x7fb510004c40 /app.js 200 0
-(2025-07-02 17:03:32) [INFO    ] Request: 10.0.2.2:63763 0x7fb510002260 HTTP/1.1 GET /favicon.ico
-(2025-07-02 17:03:32) [INFO    ] Response: 0x7fb510002260 /favicon.ico 200 0
-(2025-07-02 17:03:32) [INFO    ] Request: 10.0.2.2:63756 0x7fb510004c40 HTTP/1.1 GET /partials/login.html
-(2025-07-02 17:03:32) [INFO    ] Response: 0x7fb510004c40 /partials/login.html 200 0
-(2025-07-02 17:10:23) [INFO    ] Request: 10.0.2.2:63856 0x7fb5100037f0 HTTP/1.1 GET /
-(2025-07-02 17:10:23) [INFO    ] Response: 0x7fb5100037f0 /? 200 0
-(2025-07-02 17:10:23) [INFO    ] Request: 10.0.2.2:63863 0x7fb510002260 HTTP/1.1 GET /controllers.js
-(2025-07-02 17:10:23) [INFO    ] Response: 0x7fb510002260 /controllers.js 200 0
-(2025-07-02 17:10:23) [INFO    ] Request: 10.0.2.2:63856 0x7fb5100037f0 HTTP/1.1 GET /app.js
-(2025-07-02 17:10:23) [INFO    ] Response: 0x7fb5100037f0 /app.js 200 0
-(2025-07-02 17:10:23) [INFO    ] Request: 10.0.2.2:63856 0x7fb5100037f0 HTTP/1.1 GET /partials/login.html
-(2025-07-02 17:10:23) [INFO    ] Response: 0x7fb5100037f0 /partials/login.html 200 0
-(2025-07-02 17:10:23) [INFO    ] Request: 10.0.2.2:63863 0x7fb510002260 HTTP/1.1 GET /favicon.ico
-(2025-07-02 17:10:23) [INFO    ] Response: 0x7fb510002260 /favicon.ico 200 0
-(2025-07-02 17:10:23) [INFO    ] Request: 10.0.2.2:63856 0x7fb5100037f0 HTTP/1.1 GET /all.min.css
-(2025-07-02 17:10:23) [INFO    ] Response: 0x7fb5100037f0 /all.min.css 200 0
-(2025-07-02 17:10:51) [INFO    ] Request: 10.0.2.2:63925 0x7fb510004c40 HTTP/1.1 GET /
-(2025-07-02 17:10:51) [INFO    ] Response: 0x7fb510004c40 / 200 0
-(2025-07-02 17:10:51) [INFO    ] Request: 10.0.2.2:63926 0x7fb5100037f0 HTTP/1.1 GET /controllers.js
-(2025-07-02 17:10:51) [INFO    ] Response: 0x7fb5100037f0 /controllers.js 200 0
-(2025-07-02 17:10:51) [INFO    ] Request: 10.0.2.2:63925 0x7fb510004c40 HTTP/1.1 GET /app.js
-(2025-07-02 17:10:51) [INFO    ] Response: 0x7fb510004c40 /app.js 200 0
-(2025-07-02 17:10:51) [INFO    ] Request: 10.0.2.2:63925 0x7fb510004c40 HTTP/1.1 GET /partials/login.html
-(2025-07-02 17:10:51) [INFO    ] Response: 0x7fb510004c40 /partials/login.html 200 0
-(2025-07-02 17:10:51) [INFO    ] Request: 10.0.2.2:63925 0x7fb510004c40 HTTP/1.1 GET /all.min.css
-(2025-07-02 17:10:51) [INFO    ] Response: 0x7fb510004c40 /all.min.css 200 0
-(2025-07-02 17:10:51) [INFO    ] Request: 10.0.2.2:63926 0x7fb5100037f0 HTTP/1.1 GET /favicon.ico
-(2025-07-02 17:10:51) [INFO    ] Response: 0x7fb5100037f0 /favicon.ico 200 0
-(2025-07-02 17:11:02) [INFO    ] Request: 10.0.2.2:63931 0x7fb510002260 HTTP/1.1 GET /
-(2025-07-02 17:11:02) [INFO    ] Response: 0x7fb510002260 /? 200 0
-(2025-07-02 17:11:02) [INFO    ] Request: 10.0.2.2:63932 0x7fb5100037f0 HTTP/1.1 GET /controllers.js
-(2025-07-02 17:11:02) [INFO    ] Response: 0x7fb5100037f0 /controllers.js 200 0
-(2025-07-02 17:11:02) [INFO    ] Request: 10.0.2.2:63931 0x7fb510002260 HTTP/1.1 GET /app.js
-(2025-07-02 17:11:02) [INFO    ] Response: 0x7fb510002260 /app.js 200 0
-(2025-07-02 17:11:02) [INFO    ] Request: 10.0.2.2:63931 0x7fb510002260 HTTP/1.1 GET /partials/login.html
-(2025-07-02 17:11:02) [INFO    ] Response: 0x7fb510002260 /partials/login.html 200 0
-(2025-07-02 17:11:02) [INFO    ] Request: 10.0.2.2:63931 0x7fb510002260 HTTP/1.1 GET /all.min.css
-(2025-07-02 17:11:02) [INFO    ] Response: 0x7fb510002260 /all.min.css 200 0
-(2025-07-02 17:11:02) [INFO    ] Request: 10.0.2.2:63932 0x7fb5100037f0 HTTP/1.1 GET /favicon.ico
-(2025-07-02 17:11:02) [INFO    ] Response: 0x7fb5100037f0 /favicon.ico 200 0
-(2025-07-02 17:32:42) [INFO    ] Request: 10.0.2.2:64101 0x7fb510004c40 HTTP/1.1 GET /
-(2025-07-02 17:32:42) [INFO    ] Response: 0x7fb510004c40 / 200 0
-(2025-07-02 17:32:42) [INFO    ] Request: 10.0.2.2:64101 0x7fb510004c40 HTTP/1.1 GET /app.js
-(2025-07-02 17:32:42) [INFO    ] Response: 0x7fb510004c40 /app.js 200 0
-(2025-07-02 17:32:42) [INFO    ] Request: 10.0.2.2:64108 0x7fb510002260 HTTP/1.1 GET /controllers.js
-(2025-07-02 17:32:42) [INFO    ] Response: 0x7fb510002260 /controllers.js 200 0
-(2025-07-02 17:32:43) [INFO    ] Request: 10.0.2.2:64101 0x7fb510004c40 HTTP/1.1 GET /partials/login.html
-(2025-07-02 17:32:43) [INFO    ] Response: 0x7fb510004c40 /partials/login.html 200 0
-(2025-07-02 17:32:43) [INFO    ] Request: 10.0.2.2:64101 0x7fb510004c40 HTTP/1.1 GET /all.min.css
-(2025-07-02 17:32:43) [INFO    ] Response: 0x7fb510004c40 /all.min.css 200 0
-(2025-07-02 17:32:43) [INFO    ] Request: 10.0.2.2:64101 0x7fb510004c40 HTTP/1.1 GET /favicon.ico
-(2025-07-02 17:32:43) [INFO    ] Response: 0x7fb510004c40 /favicon.ico 200 0
-(2025-07-02 17:32:53) [INFO    ] Request: 10.0.2.2:64113 0x7fb5100037f0 HTTP/1.1 GET /partials/dashboard.html
-(2025-07-02 17:32:53) [INFO    ] Response: 0x7fb5100037f0 /partials/dashboard.html 200 0
-(2025-07-02 17:32:53) [INFO    ] Request: 10.0.2.2:64113 0x7fb5100037f0 HTTP/1.1 GET /all.min.css
-(2025-07-02 17:32:53) [INFO    ] Response: 0x7fb5100037f0 /all.min.css 200 0
-(2025-07-02 17:32:53) [INFO    ] Request: 10.0.2.2:64114 0x7fb510002260 HTTP/1.1 GET /api/customers
-(2025-07-02 17:32:53) [INFO    ] Response: 0x7fb510002260 /api/customers 200 0
-(2025-07-02 17:32:53) [INFO    ] Request: 10.0.2.2:64115 0x7fb510004c40 HTTP/1.1 GET /images/ue-logo.png
-(2025-07-02 17:32:53) [INFO    ] Response: 0x7fb510004c40 /images/ue-logo.png 200 0
-(2025-07-02 17:32:53) [INFO    ] Request: 10.0.2.2:64116 0x7fb510006090 HTTP/1.1 GET /favicon.ico
-(2025-07-02 17:32:53) [INFO    ] Response: 0x7fb510006090 /favicon.ico 200 0
-(2025-07-02 17:33:24) [INFO    ] Request: 10.0.2.2:64135 0x7fb5100075d0 HTTP/1.1 POST /api/customers
-2025-07-02 19:33:24 Added customer id=3
-(2025-07-02 17:33:24) [INFO    ] Response: 0x7fb5100075d0 /api/customers 201 0
-(2025-07-02 17:35:20) [INFO    ] Request: 10.0.2.2:64156 0x7fb510002260 HTTP/1.1 GET /all.min.css
-(2025-07-02 17:35:20) [INFO    ] Response: 0x7fb510002260 /all.min.css 200 0
-(2025-07-02 17:35:20) [INFO    ] Request: 10.0.2.2:64157 0x7fb5100037f0 HTTP/1.1 GET /favicon.ico
-(2025-07-02 17:35:20) [INFO    ] Response: 0x7fb5100037f0 /favicon.ico 200 0
-(2025-07-02 17:35:37) [INFO    ] Request: 10.0.2.2:64168 0x7fb510004c40 HTTP/1.1 GET /all.min.css
-(2025-07-02 17:35:37) [INFO    ] Response: 0x7fb510004c40 /all.min.css 200 0
-(2025-07-02 17:35:37) [INFO    ] Request: 10.0.2.2:64169 0x7fb5100037f0 HTTP/1.1 GET /api/customers
-(2025-07-02 17:35:37) [INFO    ] Response: 0x7fb5100037f0 /api/customers 200 0
-(2025-07-02 17:35:37) [INFO    ] Request: 10.0.2.2:64168 0x7fb510004c40 HTTP/1.1 GET /favicon.ico
-(2025-07-02 17:35:37) [INFO    ] Response: 0x7fb510004c40 /favicon.ico 200 0
-(2025-07-02 17:44:47) [INFO    ] Request: 10.0.2.2:64213 0x7fb510002260 HTTP/1.1 GET /
-(2025-07-02 17:44:47) [INFO    ] Response: 0x7fb510002260 / 200 0
-(2025-07-02 17:44:47) [INFO    ] Request: 10.0.2.2:64220 0x7fb5100037f0 HTTP/1.1 GET /controllers.js
-(2025-07-02 17:44:47) [INFO    ] Response: 0x7fb5100037f0 /controllers.js 200 0
-(2025-07-02 17:44:47) [INFO    ] Request: 10.0.2.2:64213 0x7fb510002260 HTTP/1.1 GET /app.js
-(2025-07-02 17:44:47) [INFO    ] Response: 0x7fb510002260 /app.js 200 0
-(2025-07-02 17:44:47) [INFO    ] Request: 10.0.2.2:64220 0x7fb5100037f0 HTTP/1.1 GET /favicon.ico
-(2025-07-02 17:44:47) [INFO    ] Response: 0x7fb5100037f0 /favicon.ico 200 0
-(2025-07-02 17:44:47) [INFO    ] Request: 10.0.2.2:64213 0x7fb510002260 HTTP/1.1 GET /partials/dashboard.html
-(2025-07-02 17:44:47) [INFO    ] Response: 0x7fb510002260 /partials/dashboard.html 200 0
-(2025-07-02 17:44:47) [INFO    ] Request: 10.0.2.2:64220 0x7fb5100037f0 HTTP/1.1 GET /all.min.css
-(2025-07-02 17:44:47) [INFO    ] Response: 0x7fb5100037f0 /all.min.css 200 0
-(2025-07-02 17:44:47) [INFO    ] Request: 10.0.2.2:64221 0x7fb510004c40 HTTP/1.1 GET /api/customers
-(2025-07-02 17:44:47) [INFO    ] Response: 0x7fb510004c40 /api/customers 200 0
-(2025-07-02 17:44:47) [INFO    ] Request: 10.0.2.2:64213 0x7fb510002260 HTTP/1.1 GET /images/ue-logo.png
-(2025-07-02 17:44:47) [INFO    ] Response: 0x7fb510002260 /images/ue-logo.png 200 0
-(2025-07-02 17:49:35) [INFO    ] Request: 10.0.2.2:64252 0x7fb510006090 HTTP/1.1 GET /
-(2025-07-02 17:49:35) [INFO    ] Response: 0x7fb510006090 / 200 0
-(2025-07-02 17:49:35) [INFO    ] Request: 10.0.2.2:64259 0x7fb510002260 HTTP/1.1 GET /controllers.js
-(2025-07-02 17:49:35) [INFO    ] Response: 0x7fb510002260 /controllers.js 200 0
-(2025-07-02 17:49:35) [INFO    ] Request: 10.0.2.2:64252 0x7fb510006090 HTTP/1.1 GET /app.js
-(2025-07-02 17:49:35) [INFO    ] Response: 0x7fb510006090 /app.js 200 0
-(2025-07-02 17:49:35) [INFO    ] Request: 10.0.2.2:64252 0x7fb510006090 HTTP/1.1 GET /partials/dashboard.html
-(2025-07-02 17:49:35) [INFO    ] Response: 0x7fb510006090 /partials/dashboard.html 200 0
-(2025-07-02 17:49:35) [INFO    ] Request: 10.0.2.2:64260 0x7fb5100037f0 HTTP/1.1 GET /all.min.css
-(2025-07-02 17:49:35) [INFO    ] Response: 0x7fb5100037f0 /all.min.css 200 0
-(2025-07-02 17:49:35) [INFO    ] Request: 10.0.2.2:64259 0x7fb510002260 HTTP/1.1 GET /favicon.ico
-(2025-07-02 17:49:35) [INFO    ] Response: 0x7fb510002260 /favicon.ico 200 0
-(2025-07-02 17:49:35) [INFO    ] Request: 10.0.2.2:64252 0x7fb510006090 HTTP/1.1 GET /images/ue-logo.png
-(2025-07-02 17:49:35) [INFO    ] Response: 0x7fb510006090 /images/ue-logo.png 200 0
-(2025-07-02 17:49:35) [INFO    ] Request: 10.0.2.2:64261 0x7fb510004c40 HTTP/1.1 GET /api/customers
-(2025-07-02 17:49:35) [INFO    ] Response: 0x7fb510004c40 /api/customers 200 0
-(2025-07-02 17:49:44) [INFO    ] Request: 10.0.2.2:64278 0x7fb5100075d0 HTTP/1.1 POST /api/customers
-2025-07-02 19:49:44 Added customer id=4
-(2025-07-02 17:49:44) [INFO    ] Response: 0x7fb5100075d0 /api/customers 201 0
+(2025-07-03 06:31:07) [INFO    ] Response: 0x7f93bc002260 /partials/dashboard.html 200 0
+(2025-07-03 06:31:07) [INFO    ] Request: 10.0.2.2:53758 0x7f93bc003700 HTTP/1.1 GET /all.min.css
+(2025-07-03 06:31:07) [INFO    ] Response: 0x7f93bc003700 /all.min.css 200 0
+(2025-07-03 06:31:07) [INFO    ] Request: 10.0.2.2:53757 0x7f93bc002260 HTTP/1.1 GET /images/ue-logo.png
+(2025-07-03 06:31:07) [INFO    ] Response: 0x7f93bc002260 /images/ue-logo.png 200 0
+(2025-07-03 06:31:07) [INFO    ] Request: 10.0.2.2:53758 0x7f93bc003700 HTTP/1.1 GET /api/customers
+(2025-07-03 06:31:07) [INFO    ] Response: 0x7f93bc003700 /api/customers 200 0
+(2025-07-03 06:31:15) [INFO    ] Request: 10.0.2.2:53764 0x7f93bc004b50 HTTP/1.1 PUT /api/customers/1
+2025-07-03 08:31:15 Updated customer id=1
+(2025-07-03 06:31:15) [INFO    ] Response: 0x7f93bc004b50 /api/customers/1 200 0
+(2025-07-03 06:31:15) [INFO    ] Request: 10.0.2.2:53764 0x7f93bc004b50 HTTP/1.1 GET /api/customers
+(2025-07-03 06:31:15) [INFO    ] Response: 0x7f93bc004b50 /api/customers 200 0
+(2025-07-03 06:31:36) [INFO    ] Request: 10.0.2.2:53765 0x7f93bc002260 HTTP/1.1 PUT /api/customers/1
+2025-07-03 08:31:36 Updated customer id=1
+(2025-07-03 06:31:36) [INFO    ] Response: 0x7f93bc002260 /api/customers/1 200 0
+(2025-07-03 06:31:36) [INFO    ] Request: 10.0.2.2:53765 0x7f93bc002260 HTTP/1.1 GET /api/customers
+(2025-07-03 06:31:36) [INFO    ] Response: 0x7f93bc002260 /api/customers 200 0
