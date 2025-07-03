@@ -304,10 +304,11 @@
           </tr>
         </tbody> -->
         <tbody>
-  <tr ng-repeat="record in records" 
-      ng-click="selectRecord(record)" 
-      ng-dblclick="editRecord(record)" 
-      ng-class="{'selected-row': record === selectedRecord}">
+<tr ng-repeat="record in records"
+    ng-click="selectRecord(record, $event)"
+    ng-dblclick="editRecord(record)"
+    ng-class="{'selected-row': selectedRecords.includes(record)}">
+
 
     <td data-full="{{record.id}}">{{record.id}}</td>
     <td data-full="{{record.name}}">{{record.name}}</td>
@@ -348,6 +349,9 @@
       </div>
     </div>
   </div>
+  <input type="file" id="importFile" style="display: none;" accept=".csv"
+       onchange="angular.element(this).scope().importFileChanged(this)" />
+
 
 </body>
 

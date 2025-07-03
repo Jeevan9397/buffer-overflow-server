@@ -1,4 +1,3 @@
-// controllers.js
 angular.module('bfApp')
 .controller('LoginCtrl', function($scope, $http, $location) {
   $scope.user = { user: '', pass: '', showPass: false };
@@ -30,8 +29,68 @@ angular.module('bfApp')
   $scope.showAddModal = false;
   $scope.editing = false;
   $scope.selectedRecord = null;
+  $scope.selectedRecords = [];
+  $scope.lastSelected = null;
 
-  // Format and Parse Helpers
+  $scope.triggerImport = function () {
+  document.getElementById('importFile').click();
+};
+
+$scope.import = function () {
+  document.getElementById('importFile').click();
+};
+
+$scope.importFileChanged = function (input) {
+  const file = input.files[0];
+  if (!file) return;
+
+  const formData = new FormData();
+  formData.append("file", file);
+
+  $http.post("/api/import", formData, {
+    transformRequest: angular.identity,
+    headers: { "Content-Type": undefined }
+  }).then(function (res) {
+    alert("Import successful!");
+    refreshRecords();
+  }, function (err) {
+    alert("Import failed.");
+    console.error(err);
+  });
+
+  // Clear the input so user can re-import same file later
+  input.value = '';
+};
+
+
+
+  // Selection logic: ctrl-click, shift-click, or single
+  $scope.selectRecord = function(record, $event) {
+    const index = $scope.selectedRecords.indexOf(record);
+
+    if ($event.ctrlKey || $event.metaKey) {
+      if (index === -1) {
+        $scope.selectedRecords.push(record);
+      } else {
+        $scope.selectedRecords.splice(index, 1);
+      }
+    } else if ($event.shiftKey && $scope.lastSelected) {
+      const last = $scope.records.indexOf($scope.lastSelected);
+      const current = $scope.records.indexOf(record);
+      const [start, end] = [Math.min(last, current), Math.max(last, current)];
+      $scope.selectedRecords = $scope.records.slice(start, end + 1);
+    } else {
+      if ($scope.selectedRecords.length === 1 && index !== -1) {
+        $scope.selectedRecords = [];
+      } else {
+        $scope.selectedRecords = [record];
+      }
+    }
+
+    $scope.lastSelected = record;
+    $scope.selectedRecord = $scope.selectedRecords[0] || null;
+  };
+
   function formatDate(isoDate) {
     const d = new Date(isoDate);
     if (!isNaN(d)) {
@@ -44,6 +103,8 @@ angular.module('bfApp')
   }
 
   function parseDate(dobStr) {
+  if (!dobStr) return '';
+
   if (dobStr instanceof Date && !isNaN(dobStr)) {
     const yyyy = dobStr.getFullYear();
     const mm = String(dobStr.getMonth() + 1).padStart(2, '0');
@@ -51,35 +112,38 @@ angular.module('bfApp')
     return `${yyyy}-${mm}-${dd}`;
   }
 
-  // Existing fallback for dd-mm-yyyy string
+  // Replace dots with dashes to handle "10.10.1997"
+  dobStr = dobStr.replace(/\./g, '-');
+
   const parts = dobStr.split('-');
-  if (parts.length === 3) {
-    return `${parts[2]}-${parts[1]}-${parts[0]}`;
+  if (parts.length === 3 && parts[2].length === 4) {
+    return `${parts[2]}-${parts[1].padStart(2, '0')}-${parts[0].padStart(2, '0')}`;
   }
 
   return dobStr;
 }
 
 
- function formatCustomers(customers) {
-  return customers.map(c => ({
-    id: c.id,
-    name: c.name,
-    father: c.father,
-    nationality: c.nationality,
-    dob: c.dob,  // raw ISO date for editing
-    dobFormatted: formatDate(c.dob),  // only for table display
-    birthplace: [c.birth_village, c.birth_district, c.birth_province].filter(Boolean).join(', '),
-    address: [c.street, c.city, c.home_district, c.home_province].filter(Boolean).join(', '),
-    mobile: c.mobile,
-    email: c.email
-  }));
-}
-
+  function formatCustomers(customers) {
+    return customers.map(c => ({
+      id: c.id,
+      name: c.name,
+      father: c.father,
+      nationality: c.nationality,
+      dob: c.dob,
+      dobFormatted: formatDate(c.dob),
+      birthplace: c.birthplace,
+      address: c.address,
+      mobile: c.mobile,
+      email: c.email
+    }));
+  }
 
   function refreshRecords() {
     $http.get('/api/customers').then(function(resp) {
       $scope.records = formatCustomers(resp.data.customers);
+      $scope.selectedRecords = [];
+      $scope.selectedRecord = null;
     });
   }
 
@@ -97,16 +161,12 @@ angular.module('bfApp')
     $scope.newRecord = {};
   };
 
-  $scope.selectRecord = function(r) {
-    $scope.selectedRecord = r;
-  };
-
   $scope.triggerEdit = function() {
-    if (!$scope.selectedRecord) {
+    if ($scope.selectedRecords.length === 0) {
       alert("Please select a record to edit.");
       return;
     }
-    $scope.editRecord($scope.selectedRecord);
+    $scope.editRecord($scope.selectedRecords[0]);
   };
 
   $scope.editRecord = function(record) {
@@ -117,21 +177,13 @@ angular.module('bfApp')
   };
 
   $scope.saveRecord = function() {
-    const parts = ($scope.newRecord.birthplace || '').split(',').map(s => s.trim());
-    const addrParts = ($scope.newRecord.address || '').split(',').map(s => s.trim());
-
     const payload = {
       name: $scope.newRecord.name,
       father: $scope.newRecord.father,
       nationality: $scope.newRecord.nationality,
-      dob: $scope.newRecord.dob,
-      birth_village: parts[0] || '',
-      birth_district: parts[1] || '',
-      birth_province: parts[2] || '',
-      street: addrParts[0] || '',
-      city: addrParts[1] || '',
-      home_district: addrParts[2] || '',
-      home_province: addrParts[3] || '',
+      dob: parseDate($scope.newRecord.dob),
+      birthplace: $scope.newRecord.birthplace,
+      address: $scope.newRecord.address,
       mobile: $scope.newRecord.mobile,
       email: $scope.newRecord.email
     };
@@ -149,6 +201,47 @@ angular.module('bfApp')
       $scope.newRecord = {};
     }, function() {
       alert("Error saving record.");
+    });
+  };
+
+  $scope.export = function () {
+    let ids = [];
+
+    if ($scope.selectedRecords && $scope.selectedRecords.length > 0) {
+      ids = $scope.selectedRecords.map(r => r.id);
+    }
+
+    let url = '/api/export';
+    if (ids.length > 0 && ids.length !== $scope.records.length) {
+      url += '?ids=' + ids.join(',');
+    }
+
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'customers.csv';
+    a.click();
+  };
+
+  $scope.delete = function() {
+    if ($scope.selectedRecords.length === 0) {
+      alert("Please select at least one record to delete.");
+      return;
+    }
+
+    if (!confirm(`Delete ${$scope.selectedRecords.length} selected record(s)?`)) return;
+
+    const toDelete = [...$scope.selectedRecords];
+
+    let deletedCount = 0;
+    toDelete.forEach((rec, idx) => {
+      $http.delete(`/api/customers/${rec.id}`).then(() => {
+        deletedCount++;
+        if (deletedCount === toDelete.length) {
+          refreshRecords();
+        }
+      }, () => {
+        alert("Error deleting record with ID: " + rec.id);
+      });
     });
   };
 

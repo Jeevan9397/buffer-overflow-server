@@ -269,3 +269,42 @@ Server listening on port 8080
 2025-07-03 08:17:22 Added customer id=12
 2025-07-03 08:31:15 Updated customer id=1
 2025-07-03 08:31:36 Updated customer id=1
+2025-07-03 08:56:05 Server stopping
+2025-07-03 08:57:19 Server starting
+2025-07-03 08:57:46 POST /api/login user=jvn success
+2025-07-03 08:57:57 Deleted customer id=8, name="ss"
+2025-07-03 08:59:09 Deleted customer id=9, name="df"
+2025-07-03 09:26:51 Server stopping
+2025-07-03 09:27:59 Server starting
+2025-07-03 09:28:14 POST /api/login user=jvn success
+2025-07-03 09:28:45 Exporting full customer list
+2025-07-03 09:29:05 Exporting full customer list
+2025-07-03 10:30:21 Exporting full customer list
+2025-07-03 10:41:59 Exporting selected records: 1,2,3
+2025-07-03 10:42:23 Deleted customer id=12, name="fff"
+2025-07-03 10:42:23 Deleted customer id=11, name="hh"
+2025-07-03 10:42:34 Exporting selected records: 3,4
+2025-07-03 10:49:09 Exporting selected records: 3,4
+2025-07-03 10:49:48 Exporting full customer list
+2025-07-03 11:19:16 Server stopping
+2025-07-03 11:21:52 Server starting
+2025-07-03 11:22:15 POST /api/login user=jvn success
+2025-07-03 11:23:28 Deleted customer id=2, name="Var"
+2025-07-03 11:23:28 Deleted customer id=1, name="jeevannnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn"
+2025-07-03 11:23:28 Deleted customer id=3, name="Vann"
+2025-07-03 11:23:28 Deleted customer id=10, name="aad"
+2025-07-03 11:23:28 Deleted customer id=6, name="jeev"
+2025-07-03 11:23:28 Deleted customer id=7, name="abc"
+2025-07-03 11:23:28 Deleted customer id=4, name="jeevan1"
+2025-07-03 11:23:28 Deleted customer id=5, name="jeevan"
+2025-07-03 11:23:36 Deleted customer id=6, name="jeev"
+2025-07-03 11:23:36 Deleted customer id=3, name="Vann"
+2025-07-03 12:00:55 Server stopping
+2025-07-03 12:01:56 Server starting
+2025-07-03 12:02:39 POST /api/login user=jvn success
+2025-07-03 12:03:22 Added customer id=1
+2025-07-03 12:03:29 Updated customer id=1
+2025-07-03 12:39:08 Server stopping
+2025-07-03 12:51:03 Server starting
+2025-07-03 12:51:22 POST /api/login user=jvn success
+2025-07-03 12:52:00 Exporting full customer list
