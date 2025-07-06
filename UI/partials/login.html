@@ -1,93 +1,209 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="dashboardApp">
+<html lang="en" ng-app="bfApp">
 <head>
   <meta charset="UTF-8">
   <title>Login</title>
   <link rel="stylesheet" href="all.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:600,400&display=swap" rel="stylesheet">
   <style>
     body {
+      background: linear-gradient(120deg, #e6e6fa 0%, #f9f9ff 100%);
+      min-height: 100vh;
+      min-width: 100vw;
+      font-family: 'Montserrat', 'Segoe UI', sans-serif;
       margin: 0;
-      padding: 0;
-      background: #f5f6fa;
-      font-family: 'Segoe UI', sans-serif;
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 100vh;
     }
-
+    label{
+      font-weight: 900 !important;
+    }
     .login-card {
-      background: white;
-      padding: 30px;
-      border-radius: 12px;
-      width: 320px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      background: rgba(255,255,255,0.97);
+      padding: 36px 32px 30px 32px;
+      border-radius: 18px;
+      width: 350px;
+      box-shadow: 0 12px 36px 0 rgba(105,100,255,0.08), 0 2px 4px 0 rgba(100,100,100,0.03);
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      animation: cardpop 0.55s cubic-bezier(.44,1.19,.72,1.24);
+      border-top: 6px solid #947aff;
     }
-
-    .login-card h2 {
+    @keyframes cardpop {
+      0% { transform: scale(0.92) translateY(50px); opacity: 0; }
+      100% { transform: scale(1) translateY(0); opacity: 1; }
+    }
+    .login-card h1 {
+      font-size: 2.05rem;
+      margin: 0 0 8px 0;
+      font-weight: 600;
       text-align: center;
-      margin-bottom: 20px;
+      color: #6248ff;
+      letter-spacing: 1.2px;
     }
-
+    .login-card p {
+      text-align: center;
+      color: #8492b4;
+      font-size: 1.09em;
+      margin: 0 0 20px 0;
+      font-weight: 500;
+    }
+    .login-card label {
+      font-size: 1em;
+      margin-bottom: 3px;
+      color: #444e6a;
+      font-weight: 500;
+      margin-top: 9px;
+      letter-spacing: 0.01em;
+    }
     .login-card input {
       width: 100%;
-      padding: 10px;
-      margin-bottom: 16px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
+      padding: 12px 40px 12px 12px;
+      border-radius: 7px;
+      border: 1.6px solid #ecebfc;
+      outline: none;
+      background: #f7f7ff;
+      font-size: 1em;
+      margin-bottom: 13px;
+      transition: border .21s, background .13s;
+      color: #353764;
+      font-family: 'Montserrat', 'Segoe UI', sans-serif;
     }
-
-    .login-card button {
-      width: 100%;
-      padding: 10px;
-      background-color: #0d6efd;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
+    .login-card input:focus {
+      border: 1.6px solid #a08eff;
+      background: #fff;
     }
-
-    .login-card .error {
-      color: red;
-      text-align: center;
-      margin-top: 10px;
-    }
-
     .password-container {
       position: relative;
     }
-
     .password-container i {
       position: absolute;
-      top: 38px;
-      right: 10px;
+      top: 60%;
+      right: 13px;
+      transform: translateY(-50%);
+      color: #acace6;
+      font-size: 1.17em;
       cursor: pointer;
+      transition: color .19s;
+    }
+    .password-container i:hover {
+      color: #947aff;
+    }
+    .login-card button {
+      margin-top: 10px;
+      margin-bottom: 8px;
+      width: 100%;
+      padding: 12px 0;
+      font-size: 1.09em;
+      background: #6248ff;
+      color: #fff;
+      border: none;
+      border-radius: 7px;
+      font-weight: 700;
+      letter-spacing: 0.22px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px 0 rgba(99,80,255,0.08);
+      transition: background .19s;
+    }
+    .login-card button:hover {
+      background: #a18df1;
+    }
+    .link-row {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 3px;
+      margin-bottom: 7px;
+    }
+    .link-row a {
+      color: #947aff;
+      font-size: 0.99em;
+      text-decoration: none;
+      cursor: pointer;
+      font-weight: 600;
+      transition: color .14s;
+    }
+    .link-row a:hover {
+      color: #2b287c;
+      text-decoration: underline;
+    }
+    .login-card .error {
+      color: #ea4c4c;
+      text-align: center;
+      margin-top: 6px;
+      font-size: 1em;
+      min-height: 20px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+    .login-card .success {
+      color: #1bae80;
+      text-align: center;
+      margin-top: 6px;
+      font-size: 1em;
+      min-height: 20px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+    .login-card .field-err {
+      color: #ea4c4c;
+      font-size: 0.94em;
+      margin-top: -7px;
+      margin-bottom: 8px;
+      margin-left: 2px;
+      font-weight: 500;
     }
   </style>
 </head>
-
-<body ng-controller="LoginCtrl">
-  <form ng-submit="login()" class="login-card">
-    <h2>Please Sign In</h2>
+<body>
+  <form ng-submit="submit()" class="login-card" autocomplete="off" novalidate>
+    <h1 ng-if="!showRegister && !showForgot">Welcome Back!</h1>
+    <h1 ng-if="showRegister">Create Account</h1>
+    <h1 ng-if="showForgot">Reset Password</h1>
+    <p ng-if="!showRegister && !showForgot">Sign in to your dashboard</p>
+    <p ng-if="showRegister">Sign up to start using the platform</p>
+    <p ng-if="showForgot">Choose a new password for your account</p>
 
     <div>
-      <label>Username</label>
-      <input ng-model="user.user" type="text" placeholder="Enter username" required />
-    </div>
+    <label for="user-field">Username</label>
+    <input id="user-field"
+          name="username"
+          ng-model="user.user"
+          type="text"
+          placeholder="Enter username"
+          required
+          autocomplete="username" />
+    <div ng-show="formErrors.user" class="field-err">{{formErrors.user}}</div>
+  </div>
+  <div class="password-container">
+    <label for="pass-field">Password</label>
+    <input id="pass-field"
+          name="password"
+          ng-model="user.pass"
+          type="{{user.showPass ? 'text' : 'password'}}"
+          placeholder="{{showForgot ? 'Enter new password' : (showRegister ? 'Set a password' : 'Enter password')}}"
+          required
+          autocomplete="{{showRegister || showForgot ? 'new-password' : 'current-password'}}" />
+    <i class="fa"
+      ng-class="{'fa-eye': !user.showPass, 'fa-eye-slash': user.showPass}"
+      ng-click="togglePass()"></i>
+  </div>
 
-    <div class="password-container">
-      <label>Password</label>
-      <input ng-model="user.pass"
-             type="{{user.showPass ? 'text' : 'password'}}"
-             placeholder="Enter password" required />
-      <i class="fa"
-         ng-class="{'fa-eye': !user.showPass, 'fa-eye-slash': user.showPass}"
-         ng-click="togglePass()"></i>
-    </div>
+    <div ng-show="formErrors.pass" class="field-err">{{formErrors.pass}}</div>
 
-    <button type="submit">Login</button>
+    <button type="submit">
+      {{showRegister ? "Create Account" : (showForgot ? "Update Password" : "Sign In")}}
+    </button>
+
+    <div class="link-row">
+      <a ng-if="!showRegister && !showForgot" href="#" ng-click="switch('forgot', $event)">Forgot password?</a>
+      <a ng-if="showRegister || showForgot" href="#" ng-click="switch('login', $event)">Back to Login</a>
+      <a ng-if="!showRegister && !showForgot" href="#" ng-click="switch('register', $event)">Sign Up</a>
+    </div>
 
     <p class="error" ng-if="error">{{error}}</p>
+    <p class="success" ng-if="success">{{success}}</p>
   </form>
 </body>
 </html>
