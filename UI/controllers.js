@@ -1,29 +1,118 @@
+function getCookie(name) {
+  const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+  return match ? decodeURIComponent(match[2]) : '';
+}
+
 angular.module('bfApp')
-.controller('LoginCtrl', function($scope, $http, $location) {
+.controller('LoginCtrl', function($scope, $http, $location, $window) {
   $scope.user = { user: '', pass: '', showPass: false };
   $scope.error = '';
+  $scope.success = '';
+  $scope.showRegister = false;
+  $scope.showForgot = false;
+  $scope.formErrors = {};
 
   $scope.togglePass = function() {
     $scope.user.showPass = !$scope.user.showPass;
   };
 
-  $scope.login = function() {
-    $http.post('/api/login', {
-      user: $scope.user.user,
-      pass: $scope.user.pass
-    }).then(function(response) {
-      if (response.data.status === 'ok') {
-        $location.path('/dashboard');
-      } else {
-        $scope.error = "Login failed. Please try again.";
-      }
-    }, function() {
-      $scope.error = "Invalid username or password.";
-    });
+  // Switch mode between login/register/forgot
+  $scope.switch = function(mode, $event) {
+    if ($event) $event.preventDefault(); // Prevent default link behavior
+    $scope.error = '';
+    $scope.success = '';
+    $scope.formErrors = {};
+    $scope.user = { user: '', pass: '', showPass: false };
+    $scope.showRegister = (mode == 'register');
+    $scope.showForgot = (mode == 'forgot');
+  };
+
+  // Validate fields for all modes
+  function validateForm() {
+    $scope.formErrors = {};
+    if (!$scope.user.user || $scope.user.user.length < 3) {
+      $scope.formErrors.user = "Username must be at least 3 characters";
+    }
+    if (!$scope.user.pass || $scope.user.pass.length < 5) {
+      $scope.formErrors.pass = "Password must be at least 5 characters";
+    }
+    return Object.keys($scope.formErrors).length === 0;
+  }
+
+  // Main form submit for all three modes
+  $scope.submit = function() {
+    $scope.error = '';
+    $scope.success = '';
+
+    // Validate input
+    if (!validateForm()) return;
+
+    if ($scope.showRegister) {
+      // Registration API call
+      $http.post('/api/register', {
+        user: $scope.user.user,
+        pass: $scope.user.pass
+      }).then(function(response) {
+        if (response.data.status === 'ok' || response.status === 201) {
+          $scope.success = "Registration successful! Please login.";
+          $scope.switch('login');
+        } else {
+          $scope.error = "Registration failed. Try a different username.";
+        }
+      }, function(err) {
+        if (err.status === 409) {
+          $scope.error = "Username already exists. Try another.";
+        } else if (typeof err.data === "string") {
+          $scope.error = err.data;
+        } else {
+          $scope.error = "Registration error.";
+        }
+      });
+    }
+    else if ($scope.showForgot) {
+      // Forgot password API call
+      $http.post('/api/forgot', {
+        user: $scope.user.user,
+        pass: $scope.user.pass
+      }).then(function(response) {
+        if (response.data.status === 'ok') {
+          $scope.success = "Password reset! You can now login.";
+          $scope.switch('login');
+        } else {
+          $scope.error = "Reset failed. Try again.";
+        }
+      }, function(err) {
+        if (err.status === 404) {
+          $scope.error = "Username not found.";
+        } else if (typeof err.data === "string") {
+          $scope.error = err.data;
+        } else {
+          $scope.error = "Reset error.";
+        }
+      });
+    }
+    else {
+      // Login API call
+      $http.post('/api/login', {
+        user: $scope.user.user,
+        pass: $scope.user.pass
+      }).then(function(response) {
+        if (response.data.status === 'ok') {
+          // Redirect to dashboard (SPA route)
+          $scope.success = response.data.message || "Logged in successfully";
+          $location.path('/dashboard');
+        } else {
+          $scope.error = "Login failed. Please try again.";
+        }
+      }, function() {
+        $scope.error = "Invalid username or password.";
+      });
+    }
   };
 })
 
 .controller('DashboardCtrl', function($scope, $http, $location) {
+  $scope.username = getCookie('user');
   $scope.records = [];
   $scope.newRecord = {};
   $scope.showAddModal = false;

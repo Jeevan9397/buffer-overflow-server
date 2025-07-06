@@ -5,325 +5,371 @@
   <meta charset="UTF-8">
   <title>Dashboard</title>
   <link rel="stylesheet" href="all.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:600,400&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary: #2e63e7;
+      --primary-dark: #244fb6;
+      --bg: #f5f7fb;
+      --card: #fff;
+      --border: #e5eaf1;
+      --text-main: #1d2233;
+      --text-label: #506080;
+      --text-light: #7e8ba7;
+    }
     html, body {
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #f5f6fa;
-      height: 100%;
-      width: 100%;
-      overflow: hidden;
+      font-family: 'Montserrat', 'Segoe UI', sans-serif;
+      background: var(--bg);
+      min-height: 100vh;
     }
-
     .topbar {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      background-color: #fff;
-      padding: 10px 20px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      justify-content: flex-start;
+      background: var(--primary);
+      padding: 14px 32px;
+      border-bottom-left-radius: 16px;
+      border-bottom-right-radius: 16px;
+      min-height: 64px;
+      gap: 24px;
     }
-
     .topbar img {
       height: 40px;
+      background: #fff;
+      border-radius: 8px;
+      margin-right: 16px;
     }
-
-    .topbar h2 {
-      margin: 0;
-      font-size: 22px;
+    .topbar .greeting {
+      font-size: 1.15em;
+      color: #fff;
+      font-weight: 600;
+      margin-right: 20px;
+      white-space: nowrap;
+      letter-spacing: 0.5px;
       flex-grow: 1;
-      text-align: center;
-      color: #222;
     }
-
     .topbar button {
-      background-color: #f44336;
+      background: var(--primary-dark);
       color: white;
       border: none;
-      padding: 8px 16px;
+      padding: 9px 24px;
       border-radius: 6px;
+      font-weight: 600;
       cursor: pointer;
+      font-size: 1em;
+      transition: background .16s;
       margin-left: auto;
     }
-
     .topbar button:hover {
-      background-color: #d32f2f;
+      background: #183e8e;
     }
-
+    #main-blur-wrapper {
+      transition: filter 0.25s;
+    }
+    #main-blur-wrapper.blurred {
+      filter: blur(7px) brightness(0.95);
+      pointer-events: none;
+      user-select: none;
+    }
     .container {
       display: flex;
       flex-direction: column;
-      height: calc(100vh - 60px);
-      padding: 0 20px;
-      max-width: 1200px;
-      margin: 0 auto;
+      gap: 32px;
+      margin: 36px auto 0 auto;
+      max-width: 1100px;
+      min-height: 70vh;
+      padding: 0 16px;
     }
-
     .action-buttons {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 12px;
-      padding: 16px 0;
-      background: #fff;
-      z-index: 900;
+      gap: 14px;
+      background: var(--card);
+      padding: 18px 0 10px 0;
+      border-radius: 12px;
+      margin-bottom: 0;
+      border: 1px solid var(--border);
     }
-
     .action-buttons button {
-      padding: 10px 18px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 10px 20px;
       border: none;
       border-radius: 6px;
       color: white;
-      font-weight: 500;
+      font-weight: 600;
       font-size: 14px;
       cursor: pointer;
+      background: var(--primary);
+      transition: background .13s, transform .09s;
+      outline: none;
     }
-
-    .btn-add { background-color: #0d6efd; }
-    .btn-edit { background-color: #6c757d; }
-    .btn-delete { background-color: #dc3545; }
-    .btn-duplicate { background-color: #fd7e14; }
-    .btn-import { background-color: #198754; }
-    .btn-export { background-color: #0d6efd; }
-
+    .action-buttons button:hover, .action-buttons button:focus {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+    .dashboard-card {
+      background: var(--card);
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      padding: 18px 12px 10px 12px;
+      overflow-x: auto;
+      min-width: 300px;
+    }
     .scrollable-table-container {
-      flex: 1;
-      overflow-y: auto;
-      border: 1px solid #ccc;
-      background: white;
-      border-radius: 8px;
+      border-radius: 12px;
+      overflow: hidden;
     }
-
     .dashboard-table {
       width: 100%;
-      border-collapse: collapse;
-      table-layout: fixed;
+      border-collapse: separate;
+      border-spacing: 0;
+      min-width: 800px;
+      background: var(--card);
+      border-radius: 12px;
     }
-
-    .dashboard-table th,
-    .dashboard-table td {
-      padding: 12px 14px;
+    .dashboard-table th, .dashboard-table td {
+      padding: 12px 10px;
       text-align: left;
-      border-bottom: 1px solid #eee;
-      word-break: break-word;
-      white-space: normal;
-      vertical-align: top;
+      border-bottom: 1px solid var(--border);
+      font-size: 1em;
+      vertical-align: middle;
+      font-family: 'Montserrat', sans-serif;
+      background: var(--card);
     }
-
     .dashboard-table th {
-      background-color: #f1f3f5;
-      color: #333;
-      font-weight: 600;
-      position: sticky;
-      top: 0;
-      z-index: 10;
+      color: var(--text-label);
+      font-weight: 700;
+      background: #f6f8fd;
+      letter-spacing: .5px;
+      border-bottom: 2px solid var(--border);
     }
-
+    .dashboard-table td:first-child {
+      text-align: left;
+      color: #1b3360;
+      font-weight: 600;
+    }
+    .dashboard-table td {
+      color: var(--text-main);
+      font-size: 0.99em;
+      max-width: 180px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .dashboard-table tr.selected-row td {
+      background: #e7effc;
+    }
+    .dashboard-table tr:hover td {
+      background: #f5faff;
+    }
+    .dashboard-table td[data-full]:hover::after {
+      content: attr(data-full);
+      position: absolute;
+      background: #222;
+      color: #fff;
+      padding: 5px 12px;
+      border-radius: 6px;
+      top: 110%;
+      left: 0;
+      z-index: 9999;
+      min-width: 140px;
+      max-width: 400px;
+      font-size: 0.97em;
+      opacity: 0.98;
+      box-shadow: 0 2px 8px #0002;
+      white-space: normal;
+    }
+    /* Modal */
     .modal-overlay {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.45);
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(25,32,70,0.13);
       display: flex;
       align-items: center;
       justify-content: center;
-      z-index: 2000;
+      z-index: 2500;
+      overflow-y: auto;
     }
-
     .modal-content {
-      background: #ffffff;
-      border-radius: 16px;
-      width: 90%;
-      max-width: 520px;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
-      animation: popIn 0.3s ease-in-out;
+      background: var(--card);
+      border-radius: 14px;
+      min-height: 100px;
+      max-width: 820px;
+      width: 90vw;
+      border: 1px solid var(--border);
+      box-shadow: 0 8px 44px #22304c1a;
+      animation: popIn .22s cubic-bezier(.44,1.19,.72,1.24);
+      overflow: hidden;
+      position: relative;
+      margin: 40px 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
-
     @keyframes popIn {
-      0% { transform: scale(0.9); opacity: 0; }
+      0% { transform: scale(0.96); opacity: 0; }
       100% { transform: scale(1); opacity: 1; }
     }
-
     .modal-header {
-      background: linear-gradient(to right, #1a73e8, #4285f4);
-      padding: 20px;
+      background: var(--primary);
+      padding: 16px 0;
       color: white;
       text-align: center;
-      font-size: 20px;
-      font-weight: bold;
+      font-size: 1.08em;
+      font-weight: 700;
+      letter-spacing: 0.7px;
+      border-radius: 12px 12px 0 0;
     }
-
     .modal-body {
-      padding: 24px;
-      background: #f7faff;
+      padding: 22px 22px 10px 22px;
+      background: var(--card);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px 18px;
+      justify-content: flex-start;
     }
-
-    .modal-body input {
+    .modal-group {
+      flex: 1 1 29%;
+      min-width: 0;
+      max-width: 32%;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 0;
+    }
+    .modal-group label {
+      margin-bottom: 5px;
+      color: var(--text-label);
+      font-size: 0.99em;
+      font-weight: 600;
+      letter-spacing: 0.1px;
+    }
+    .modal-group input {
       width: 100%;
-      padding: 12px;
-      margin-bottom: 14px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 14px;
+      padding: 10px 8px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      font-size: 1em;
+      background: #f7f9fc;
       box-sizing: border-box;
-      transition: border-color 0.2s;
-    }
-
-    .modal-body input:focus {
-      border-color: #1a73e8;
+      transition: border-color 0.13s;
+      font-family: 'Montserrat', 'Segoe UI', sans-serif;
       outline: none;
-      box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.2);
     }
-
+    .modal-group input:focus {
+      border-color: var(--primary);
+      background: #fff;
+    }
     .modal-footer {
       display: flex;
       justify-content: flex-end;
-      gap: 10px;
-      padding: 16px 24px;
-      background: #f1f3f4;
-      border-top: 1px solid #e0e0e0;
+      gap: 12px;
+      padding: 13px 22px 15px 22px;
+      background: #f8faff;
+      border-top: 1px solid var(--border);
     }
-
     .modal-footer button {
-      padding: 10px 20px;
-      font-size: 14px;
-      font-weight: 600;
+      padding: 10px 22px;
+      font-size: 1em;
+      font-weight: 700;
       border: none;
       border-radius: 6px;
       cursor: pointer;
-      transition: 0.2s ease-in-out;
+      background: var(--primary);
+      color: #fff;
+      transition: background .13s;
     }
-
-    .modal-footer .save-btn { background-color: #4caf50; color: white; }
-    .modal-footer .save-btn:hover { background-color: #388e3c; }
-    .modal-footer .cancel-btn { background-color: #f44336; color: white; }
-    .modal-footer .cancel-btn:hover { background-color: #d32f2f; }
-
-    .selected-row {
-      background-color: #e3f2fd;
+    .modal-footer .cancel-btn {
+      background: #d8dbe5;
+      color: #222;
     }
-
-    @media screen and (max-width: 768px) {
-      .topbar h2 {
-        font-size: 18px;
+    .modal-footer .cancel-btn:hover {
+      background: #c7c9d4;
+    }
+    .modal-footer .save-btn:hover {
+      background: var(--primary-dark);
+    }
+    @media (max-width: 900px) {
+      .modal-content {
+        max-width: 99vw;
+        width: 99vw;
       }
-      .action-buttons {
+      .modal-body {
         flex-direction: column;
-        align-items: center;
+        gap: 10px 0;
+        padding: 14px 10px 10px 10px;
+      }
+      .modal-group {
+        max-width: 100%;
+        width: 100%;
       }
     }
-    .dashboard-table td {
-  position: relative;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  max-width: 140px; /* Adjust per column type */
-  cursor: default;
-}
-
-.dashboard-table td:hover {
-  background-color: #f5faff;
-}
-
-.dashboard-table td[data-full]:hover::after {
-  content: attr(data-full);
-  position: absolute;
-  white-space: normal;
-  background: #333;
-  color: #fff;
-  padding: 6px 10px;
-  border-radius: 4px;
-  top: 100%;
-  left: 0;
-  z-index: 9999;
-  min-width: 160px;
-  max-width: 400px;
-  font-size: 13px;
-  pointer-events: none;
-  opacity: 0.95;
-}
-
+    @media (max-width: 850px) {
+      .dashboard-table, .dashboard-table th, .dashboard-table td { font-size: 0.93em; }
+      .container { padding: 0 5px;}
+      .dashboard-card { padding: 10px 2px;}
+    }
   </style>
 </head>
 
-<body>
+<body ng-init="initDashboard()">
 
   <!-- Top Bar -->
   <div class="topbar">
     <img src="images/ue-logo.png" alt="UE Logo">
-    <h2>Welcome to Data Dashboard</h2>
-    <button ng-click="logout()">Logout</button>
+    <div class="greeting" id="user-greeting">  
+      Hello {{username}}, welcome to dashboard
+    </div>
+    <button ng-click="logout()"><i class="fa fa-sign-out"></i> Logout</button>
   </div>
 
-  <!-- Main Content -->
-  <div class="container">
-    <!-- Action Buttons -->
-    <div class="action-buttons">
-      <button class="btn-add" ng-click="add()">+ Add</button>
-      <button class="btn-edit" ng-click="triggerEdit()">Edit</button>
-      <button class="btn-delete" ng-click="delete()">Delete</button>
-      <button class="btn-duplicate" ng-click="duplicate()">Duplicate</button>
-      <button class="btn-import" ng-click="import()">Import</button>
-      <button class="btn-export" ng-click="export()">Export</button>
-    </div>
-
-    <!-- Scrollable Table -->
-    <div class="scrollable-table-container">
-      <table class="dashboard-table">
-        <thead>
-          <tr>
-            <th>Id</th>
-            <th>Full Name</th>
-            <th>Father's Name</th>
-            <th>Nationality</th>
-            <th>Date of Birth</th>
-            <th>Birth Place</th>
-            <th>Home Address</th>
-            <th>Mobile</th>
-            <th>Email</th>
-          </tr>
-        </thead>
-        <!-- <tbody>
-          <tr ng-repeat="record in records" ng-click="selectRecord(record)" ng-dblclick="editRecord(record)"
-            ng-class="{'selected-row': record === selectedRecord}">
-            <td>{{record.id}}</td>
-            <td>{{record.name}}</td>
-            <td>{{record.father}}</td>
-            <td>{{record.nationality}}</td>
-            <td>{{record.dobFormatted}}</td>
-            <td>{{record.birthplace}}</td>
-            <td>{{record.address}}</td>
-            <td>{{record.mobile}}</td>
-            <td>{{record.email}}</td>
-          </tr>
-        </tbody> -->
-        <tbody>
-<tr ng-repeat="record in records"
-    ng-click="selectRecord(record, $event)"
-    ng-dblclick="editRecord(record)"
-    ng-class="{'selected-row': selectedRecords.includes(record)}">
-
-
-    <td data-full="{{record.id}}">{{record.id}}</td>
-    <td data-full="{{record.name}}">{{record.name}}</td>
-    <td data-full="{{record.father}}">{{record.father}}</td>
-    <td data-full="{{record.nationality}}">{{record.nationality}}</td>
-    <td data-full="{{record.dobFormatted}}">{{record.dobFormatted}}</td>
-    <td data-full="{{record.birthplace}}">{{record.birthplace}}</td>
-    <td data-full="{{record.address}}">{{record.address}}</td>
-    <td data-full="{{record.mobile}}">{{record.mobile}}</td>
-    <td data-full="{{record.email}}">{{record.email}}</td>
-
-  </tr>
-</tbody>
-
-      </table>
+  <!-- Content wrapper for blur effect -->
+  <div id="main-blur-wrapper" ng-class="{'blurred': showAddModal}">
+    <div class="container">
+      <div class="action-buttons dashboard-card">
+        <button ng-click="add()"><i class="fa fa-plus"></i> Add</button>
+        <button ng-click="triggerEdit()"><i class="fa fa-edit"></i> Edit</button>
+        <button ng-click="delete()"><i class="fa fa-trash"></i> Delete</button>
+        <button ng-click="import()"><i class="fa fa-upload"></i> Import</button>
+        <button ng-click="export()"><i class="fa fa-download"></i> Export</button>
+      </div>
+      <div class="dashboard-card scrollable-table-container">
+        <table class="dashboard-table">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Full Name</th>
+              <th>Father's Name</th>
+              <th>Nationality</th>
+              <th>Date of Birth</th>
+              <th>Birth Place</th>
+              <th>Home Address</th>
+              <th>Mobile</th>
+              <th>Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="record in records"
+                ng-click="selectRecord(record, $event)"
+                ng-dblclick="editRecord(record)"
+                ng-class="{'selected-row': selectedRecords.includes(record)}">
+              <td data-full="{{record.id}}">{{record.id}}</td>
+              <td data-full="{{record.name}}">{{record.name}}</td>
+              <td data-full="{{record.father}}">{{record.father}}</td>
+              <td data-full="{{record.nationality}}">{{record.nationality}}</td>
+              <td data-full="{{record.dobFormatted}}">{{record.dobFormatted}}</td>
+              <td data-full="{{record.birthplace}}">{{record.birthplace}}</td>
+              <td data-full="{{record.address}}">{{record.address}}</td>
+              <td data-full="{{record.mobile}}">{{record.mobile}}</td>
+              <td data-full="{{record.email}}">{{record.email}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 
@@ -331,17 +377,41 @@
   <div class="modal-overlay" ng-show="showAddModal">
     <div class="modal-content">
       <div class="modal-header">
-        {{ editing ? 'Edit Record' : 'Add New Record' }}
+        {{ editing ? 'Edit Customer' : 'Add New Customer' }}
       </div>
       <div class="modal-body">
-        <input type="text" placeholder="Full Name" ng-model="newRecord.name" />
-        <input type="text" placeholder="Father's Name" ng-model="newRecord.father" />
-        <input type="text" placeholder="Nationality" ng-model="newRecord.nationality" />
-        <input type="date" ng-model="newRecord.dob" />
-        <input type="text" placeholder="Birth Place" ng-model="newRecord.birthplace" />
-        <input type="text" placeholder="Home Address" ng-model="newRecord.address" />
-        <input type="text" placeholder="Mobile" ng-model="newRecord.mobile" />
-        <input type="email" placeholder="Email" ng-model="newRecord.email" />
+        <div class="modal-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" ng-model="newRecord.name" required />
+        </div>
+        <div class="modal-group">
+          <label for="father">Father's Name</label>
+          <input type="text" id="father" ng-model="newRecord.father" required />
+        </div>
+        <div class="modal-group">
+          <label for="nationality">Nationality</label>
+          <input type="text" id="nationality" ng-model="newRecord.nationality" required />
+        </div>
+        <div class="modal-group">
+          <label for="dob">Date of Birth</label>
+          <input type="date" id="dob" ng-model="newRecord.dob" required />
+        </div>
+        <div class="modal-group">
+          <label for="birthplace">Birth Place</label>
+          <input type="text" id="birthplace" ng-model="newRecord.birthplace" required />
+        </div>
+        <div class="modal-group">
+          <label for="address">Home Address</label>
+          <input type="text" id="address" ng-model="newRecord.address" required />
+        </div>
+        <div class="modal-group">
+          <label for="mobile">Mobile</label>
+          <input type="text" id="mobile" ng-model="newRecord.mobile" required />
+        </div>
+        <div class="modal-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" ng-model="newRecord.email" required />
+        </div>
       </div>
       <div class="modal-footer">
         <button class="save-btn" ng-click="saveRecord()">Save</button>
@@ -350,9 +420,6 @@
     </div>
   </div>
   <input type="file" id="importFile" style="display: none;" accept=".csv"
-       onchange="angular.element(this).scope().importFileChanged(this)" />
-
-
+         onchange="angular.element(this).scope().importFileChanged(this)" />
 </body>
-
 </html>
