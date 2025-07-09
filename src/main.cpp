@@ -9,6 +9,7 @@
 #include <vector>
 #include <algorithm>
 #include <set>
+#include <cstring>
 
 // ------------------- Utility Functions -------------------
 void log(const std::string &msg) {
@@ -181,30 +182,84 @@ int main() {
         return crow::response{r};
     });
 
-    CROW_ROUTE(app, "/api/customers/<int>").methods("PUT"_method)([](const crow::request &req, int id) {
-        auto js = crow::json::load(req.body);
-        if (!js) return crow::response(400, "Invalid JSON");
-        auto customers = load_customers();
-        bool found = false;
-        for (auto &c : customers) {
-            if (c.id == id) {
-                c.name = js["name"].s();
-                c.father = js["father"].s();
-                c.nationality = js["nationality"].s();
-                c.dob = js["dob"].s();
-                c.birthplace = js["birthplace"].s();
-                c.address = js["address"].s();
-                c.mobile = js["mobile"].s();
-                c.email = js["email"].s();
-                found = true;
-                break;
-            }
+    // CROW_ROUTE(app, "/api/customers/<int>").methods("PUT"_method)([](const crow::request &req, int id) {
+    //     auto js = crow::json::load(req.body);
+    //     if (!js) return crow::response(400, "Invalid JSON");
+    //     auto customers = load_customers();
+    //     bool found = false;
+    //     for (auto &c : customers) {
+    //         if (c.id == id) {
+    //             c.name = js["name"].s();
+    //             c.father = js["father"].s();
+    //             c.nationality = js["nationality"].s();
+    //             c.dob = js["dob"].s();
+    //             c.birthplace = js["birthplace"].s();
+    //             c.address = js["address"].s();
+    //             c.mobile = js["mobile"].s();
+    //             c.email = js["email"].s();
+    //             found = true;
+    //             break;
+    //         }
+    //     }
+    //     if (!found) return crow::response(404, "Customer not found");
+    //     save_customers(customers);
+    //     log("Updated customer id=" + std::to_string(id));
+    //     return crow::response(200);
+    // });
+CROW_ROUTE(app, "/api/customers/<int>").methods("PUT"_method)(
+[](const crow::request &req, int id) {
+    auto js = crow::json::load(req.body);
+    if (!js) return crow::response(400, "Invalid JSON");
+
+    auto customers = load_customers();
+    bool found = false;
+
+    for (auto &c : customers) {
+        if (c.id == id) {
+            std::string newAddr = js["address"].s();
+            log("Editing customer id=" + std::to_string(id) + " address length=" + std::to_string(newAddr.size()));
+
+            // Combine buffer, canary, and allow overflow space
+            char combined[64] = {};   // total space: 40 (buffer) + 1 (canary) + rest (overflow)
+            char* addrBuffer = combined;
+            char* canaryPtr = &combined[40];
+            *canaryPtr = '#';  // Set canary
+
+            // OFF-BY-ONE copy vulnerability: 41 bytes into 40 buffer + 1 canary
+            strncpy(addrBuffer, newAddr.c_str(), 41);
+            addrBuffer[39] = '\0';  // Null-terminate properly
+
+            // Prepare and log the view: buffer + [CANARY:X] + overflow
+            std::string loggedBuffer(combined, 64);
+            std::string combinedView = loggedBuffer.substr(0, 40);  // buffer
+            combinedView += "[CANARY:" + std::string(1, combined[40]) + "]"; // canary value
+            combinedView += loggedBuffer.substr(41);  // overflow portion
+
+            log("Off-by-one address buffer + canary + overflow: " + combinedView);
+
+            // Assign safely to object
+            c.name = js["name"].s();
+            c.father = js["father"].s();
+            c.nationality = js["nationality"].s();
+            c.dob = js["dob"].s();
+            c.birthplace = js["birthplace"].s();
+            c.address = addrBuffer;  // Overflown content may be unsafe!
+            c.mobile = js["mobile"].s();
+            c.email = js["email"].s();
+
+            found = true;
+            break;
         }
-        if (!found) return crow::response(404, "Customer not found");
-        save_customers(customers);
-        log("Updated customer id=" + std::to_string(id));
-        return crow::response(200);
-    });
+    }
+
+    if (!found) return crow::response(404, "Customer not found");
+
+    save_customers(customers);
+    log("Updated customer with address off-by-one vulnerability");
+    return crow::response(200);
+});
+
+
 
     CROW_ROUTE(app, "/api/customers").methods("POST"_method)([](const crow::request &req) {
         auto js = crow::json::load(req.body);
@@ -213,8 +268,20 @@ int main() {
         int nid = v.empty() ? 1 : v.back().id + 1;
         Customer c;
         c.id = nid;
-        c.name = js["name"].s();
-        c.father = js["father"].s();
+        // c.name = js["name"].s();
+        //Injecting bufferOverFlow ---------------- ATTACK1
+        char nameBuf[32]; //fixed buffer size
+        std::string inputName = js["name"].s();
+        strcpy(nameBuf , inputName.c_str());
+        log("Receieved POST /api/customers with name:" + std::string(nameBuf));
+        c.name = std::string(nameBuf);
+
+        // c.father = js["father"].s();
+        char FatherBuf[40];
+        std::string father = js["father"].s();
+        snprintf(FatherBuf, sizeof(FatherBuf), father.c_str()); //Vulnerable if name has format specifiers
+        log(std::string("Formatted:")+ FatherBuf);
+        c.father = std::string(FatherBuf);
         c.nationality = js["nationality"].s();
         c.dob = js["dob"].s();
         c.birthplace = js["birthplace"].s();
@@ -226,6 +293,52 @@ int main() {
         log("Added customer id=" + std::to_string(nid));
         return crow::response(201);
     });
+
+
+ // ATTACK 1 Using STRCPY FUNCTION
+
+// CROW_ROUTE(app, "/api/customers").methods("POST"_method)([](const crow::request &req) {
+//     // 1) Parse JSON
+//     auto js = crow::json::load(req.body);
+//     if (!js) return crow::response(400, "Invalid JSON");
+
+//     // 2) Compute new ID
+//     auto v = load_customers();
+//     int nid = v.empty() ? 1 : v.back().id + 1;
+
+//     // ───── Vulnerable buffer overflow demo ─────
+//     // 3) Copy the JSON “name” into a std::string (so we own the data)
+//     std::string rawName = js["name"].s();      // r_string → std::string via operator std::string()
+
+//     // 4) Tiny fixed‐size stack buffer
+//     char buf[32];
+
+//     // 5) UNSAFE copy: if rawName.length() ≥ 32, this overruns buf
+//     std::strcpy(buf, rawName.c_str());         // ← NO bounds check!
+
+//     // 6) Build your Customer struct using the overflowed buffer
+//     Customer c;
+//     c.id          = nid;
+//     c.name        = buf;                      // overflow lands here
+//     c.father      = js["father"].s();
+//     c.nationality = js["nationality"].s();
+//     c.dob         = js["dob"].s();
+//     c.birthplace  = js["birthplace"].s();
+//     c.address     = js["address"].s();
+//     c.mobile      = js["mobile"].s();
+//     c.email       = js["email"].s();
+//     // ───── end vulnerable section ─────
+
+//     // 7) Persist and log
+//     v.push_back(std::move(c));
+//     save_customers(v);
+//     log("Added customer (vulnerable) id=" + std::to_string(nid)
+//         + " name=" + std::string(buf));
+
+//     return crow::response(201);
+// });
+
+
 
     CROW_ROUTE(app, "/api/customers/<int>").methods("DELETE"_method)([](int id) {
         auto customers = load_customers();

@@ -308,3 +308,145 @@ Server listening on port 8080
 2025-07-03 12:51:03 Server starting
 2025-07-03 12:51:22 POST /api/login user=jvn success
 2025-07-03 12:52:00 Exporting full customer list
+2025-07-09 20:46:29 Server starting
+2025-07-09 20:46:50 POST /api/login user=jvn success
+2025-07-09 20:47:27 Added customer id=2
+2025-07-09 20:47:52 Updated customer id=1
+2025-07-09 20:48:14 Deleted customer id=2
+2025-07-09 20:48:26 Exporting full customer list
+2025-07-09 20:49:28 POST /api/login user=jvn success
+2025-07-09 20:57:35 Server stopping
+2025-07-09 20:57:45 Server starting
+2025-07-09 22:03:34 Server stopping
+2025-07-09 22:05:14 Server starting
+2025-07-09 22:05:29 POST /api/login user=jvn success
+2025-07-09 22:07:54 Added customer (vulnerable) id=3 name=Raviiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+2025-07-09 22:14:11 Server stopping
+2025-07-09 22:15:02 Server starting
+2025-07-09 22:15:15 POST /api/login user=jvn success
+2025-07-09 22:16:09 Receieved POST /api/customers with name:Raviiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+2025-07-09 22:16:09 Added customer id=4
+2025-07-09 23:00:44 Server starting
+2025-07-09 23:01:23 POST /api/login user=jvn success
+2025-07-09 23:01:23 POST /api/login user=jvn success
+2025-07-09 23:02:09 Receieved POST /api/customers with name:AASSD
+2025-07-09 23:02:09 Formatted:AAA 2520 
+2025-07-09 23:02:09 Added customer id=5
+2025-07-09 23:04:49 Receieved POST /api/customers with name:AAA
+2025-07-09 23:04:49 Formatted:ABC 7825 5ec1bf0 a5a3d8
+2025-07-09 23:04:49 Added customer id=6
+2025-07-09 23:06:21 Server stopping
+2025-07-09 23:09:48 Server starting
+2025-07-09 23:10:07 POST /api/login user=jvn success
+2025-07-09 23:10:46 Receieved POST /api/customers with name:AAAAAA
+2025-07-09 23:10:46 Formatted:AAAA 78 5453d20 5453d30 0
+2025-07-09 23:10:46 Added customer id=7
+2025-07-09 23:12:18 Receieved POST /api/customers with name:ajsajaj
+2025-07-09 23:33:48 Server starting
+2025-07-09 23:34:09 POST /api/login user=jvn success
+2025-07-09 23:36:45 Receieved POST /api/customers with name:ANAB
+2025-07-09 23:36:45 Formatted:NANAN
+2025-07-09 23:36:45 Added customer id=8
+2025-07-09 23:39:43 Server stopping
+2025-07-09 23:42:13 Server starting
+2025-07-09 23:42:37 POST /api/login user=jvn success
+2025-07-09 23:43:19 Editing customer id=8 address length=79
+2025-07-09 23:43:19 Off-by-one address buffer content: aaaaaaaaaaaaaaaaaaahhhhhhhhhhhhhhhhhhhh
+2025-07-09 23:43:19 Canary value after address write: #
+2025-07-09 23:43:19 Updated customer with address off-by-one vulnerability
+2025-07-09 23:44:19 Editing customer id=8 address length=53
+2025-07-09 23:44:19 Off-by-one address buffer content: aaaaaaaaaaaaaaaaaaahhhhhhhhhhhhhhhhhhhh
+2025-07-09 23:44:19 Canary value after address write: #
+2025-07-09 23:44:19 Updated customer with address off-by-one vulnerability
+2025-07-09 23:53:04 Server stopping
+2025-07-09 23:55:08 Server starting
+2025-07-09 23:55:24 POST /api/login user=jvn success
+2025-07-09 23:55:53 Editing customer id=2 address length=112
+2025-07-09 23:55:53 Off-by-one address buffer content: magdeburgnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
+2025-07-09 23:55:53 Canary value after address write: n
+2025-07-09 23:55:53 Updated customer with address off-by-one vulnerability
+2025-07-09 23:56:46 Editing customer id=2 address length=64
+2025-07-09 23:56:46 Off-by-one address buffer content: magdeburgnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
+2025-07-09 23:56:46 Canary value after address write: s
+2025-07-09 23:56:46 Updated customer with address off-by-one vulnerability
+2025-07-09 23:57:28 Editing customer id=2 address length=83
+2025-07-09 23:57:28 Off-by-one address buffer content: magdeburgnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
+2025-07-09 23:57:28 Canary value after address write: s
+2025-07-09 23:57:28 Updated customer with address off-by-one vulnerability
+2025-07-10 00:08:03 Server stopping
+2025-07-10 00:09:06 Server starting
+2025-07-10 00:09:28 POST /api/login user=jvn success
+2025-07-10 00:09:41 Editing customer id=2 address length=77
+2025-07-10 00:09:41 Off-by-one address buffer + canary + overflow: magdeburgnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnssssssssssssssssssssssss
+2025-07-10 00:09:41 Updated customer with address off-by-one vulnerability
+2025-07-10 00:17:20 Server stopping
+2025-07-10 00:18:37 Server starting
+2025-07-10 00:19:00 POST /api/login user=jvn success
+2025-07-10 00:19:26 Editing customer id=2 address length=124
+2025-07-10 00:19:26 Off-by-one address buffer + canary + overflow: magdeburgnnnnnnnnnnnnnnnnnnnnnnnnnnnfff [CANARY:f]                       
+2025-07-10 00:19:26 Updated customer with address off-by-one vulnerability
+2025-07-10 00:25:01 Server starting
+2025-07-10 00:25:16 POST /api/login user=jvn success
+2025-07-10 00:25:43 Editing customer id=2 address length=68
+2025-07-10 00:25:43 Off-by-one address buffer + canary + overflow: magdeburgnnnnnnnnnnnnnnnnnnnnnnnnnnnfff [CANARY:z]zzzzzzzzzzzzzzzzzzzzzzz
+2025-07-10 00:25:43 Updated customer with address off-by-one vulnerability
+2025-07-10 00:26:11 POST /api/login user=Jeevan Madhu Sai Reddy fail
+2025-07-10 00:26:18 POST /api/login user=Jeevan Madhu Sai Reddy fail
+2025-07-10 00:26:25 POST /api/login user=jvn success
+2025-07-10 00:27:29 Server stopping
+2025-07-10 00:29:26 Server starting
+2025-07-10 00:29:39 POST /api/login user=jvn success
+2025-07-10 00:30:06 Receieved POST /api/customers with name:agag
+2025-07-10 00:30:06 Formatted:kakak
+2025-07-10 00:30:06 Added customer id=1
+2025-07-10 00:30:42 Editing customer id=1 address length=93
+2025-07-10 00:30:42 Off-by-one address buffer + canary + overflow: kkkkkkkkkkkkkkaaaaaaaaaaadjdkdkammmmmmm [CANARY:m]                       
+2025-07-10 00:30:42 Updated customer with address off-by-one vulnerability
+2025-07-10 00:31:39 Server stopping
+2025-07-10 00:34:26 Server starting
+2025-07-10 00:34:47 POST /api/login user=jvn success
+2025-07-10 00:35:03 Editing customer id=1 address length=131
+2025-07-10 00:35:03 Off-by-one address buffer + canary + overflow: kkkkkkkkkkkkkkaaaaaaaaaaadjdkdkammmmmmm [CANARY:a]aaaaaaaaaaaaaaaaaaa    
+2025-07-10 00:35:03 Updated customer with address off-by-one vulnerability
+2025-07-10 00:41:53 Server starting
+2025-07-10 00:41:53 Server stopping
+2025-07-10 00:42:13 POST /api/login user=jvn success
+2025-07-10 00:42:59 Received POST /api/customers with name length: 56 | value: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+2025-07-10 00:42:59 Buffer Overflow Content: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+2025-07-10 00:42:59 Formatted:AA %n %x
+2025-07-10 00:42:59 Added customer id=2
+2025-07-10 00:44:00 Editing customer id=2 address length=82
+2025-07-10 00:44:00 Off-by-one address buffer + canary + overflow: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA [CANARY:A]AAAAAAAAAAANBBBBBBB    
+2025-07-10 00:44:00 Updated customer with address off-by-one vulnerability
+2025-07-10 00:45:20 Editing customer id=2 address length=39
+2025-07-10 00:45:20 Off-by-one address buffer + canary + overflow: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA [CANARY: ]                       
+2025-07-10 00:45:20 Updated customer with address off-by-one vulnerability
+2025-07-10 00:47:10 Received POST /api/customers with name length: 49 | value: AVBABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+2025-07-10 00:47:10 Buffer Overflow Content: AVBABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+2025-07-10 00:47:10 Formatted:ACABAB %x
+2025-07-10 00:47:10 Added customer id=3
+2025-07-10 00:49:05 Received POST /api/customers with name length: 66 | value: CCCCCCCCCCCCCCCCCCCCCCCCCCCCDDDDDDDDDDDDDDDDDDDDDDDEEEEEEEEEEEEEEE
+2025-07-10 00:49:05 Buffer Overflow Content: CCCCCCCCCCCCCCCCCCCCCCCCCCCCDDDDDDDDDDDDDDDDDDDDDDDEEEEEEEEEEEEEEE
+2025-07-10 00:49:05 Formatted:ANAN
+2025-07-10 00:49:05 Added customer id=4
+2025-07-10 00:50:38 Server starting
+2025-07-10 00:50:38 Server stopping
+2025-07-10 00:50:52 POST /api/login user=jvn success
+2025-07-10 00:51:28 Received POST /api/customers with name length: 78 | value: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+2025-07-10 00:51:28 Buffer Overflow Content: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+2025-07-10 00:51:28 Formatted:Aajija
+2025-07-10 00:51:28 Added customer id=5
+2025-07-10 00:53:51 Server starting
+2025-07-10 00:54:08 POST /api/login user=jvn success
+2025-07-10 00:54:40 Editing customer id=1 address length=39
+2025-07-10 00:54:40 Off-by-one address buffer + canary + overflow: kkkkkkkkkkkkkkaaaaaaaaaaadjdkdkammmmmmm [CANARY: ]                       
+2025-07-10 00:54:40 Updated customer with address off-by-one vulnerability
+2025-07-10 00:55:40 Server stopping
+2025-07-10 00:57:09 Server starting
+2025-07-10 00:57:21 POST /api/login user=jvn success
+2025-07-10 00:57:40 Editing customer id=1 address length=39
+2025-07-10 00:57:40 Off-by-one address buffer + canary + overflow: kkkkkkkkkkkkkkaaaaaaaaaaadjdkdkammmmmmm [CANARY: ]                       
+2025-07-10 00:57:40 Updated customer with address off-by-one vulnerability
+2025-07-10 00:59:58 Receieved POST /api/customers with name:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+2025-07-10 00:59:58 Formatted:anaan
+2025-07-10 00:59:58 Added customer id=6
