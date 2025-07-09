@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en" ng-controller="dashboardCtrl">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="all.min.css">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f6fa;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #fff;
+      padding: 10px 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .topbar img {
+      height: 40px;
+    }
+
+    .topbar h2 {
+      margin: 0;
+      font-size: 22px;
+      flex-grow: 1;
+      text-align: center;
+      color: #222;
+    }
+
+    .topbar button {
+      background-color: #f44336;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-left: auto;
+    }
+
+    .topbar button:hover {
+      background-color: #d32f2f;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      height: calc(100vh - 60px);
+      padding: 0 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .action-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      padding: 16px 0;
+      background: #fff;
+      z-index: 900;
+    }
+
+    .action-buttons button {
+      padding: 10px 18px;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-weight: 500;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .btn-add { background-color: #0d6efd; }
+    .btn-edit { background-color: #6c757d; }
+    .btn-delete { background-color: #dc3545; }
+    .btn-duplicate { background-color: #fd7e14; }
+    .btn-import { background-color: #198754; }
+    .btn-export { background-color: #0d6efd; }
+
+    .scrollable-table-container {
+      flex: 1;
+      overflow-y: auto;
+      border: 1px solid #ccc;
+      background: white;
+      border-radius: 8px;
+    }
+
+    .dashboard-table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+
+    .dashboard-table th,
+    .dashboard-table td {
+      padding: 12px 14px;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+      word-break: break-word;
+      white-space: normal;
+      vertical-align: top;
+    }
+
+    .dashboard-table th {
+      background-color: #f1f3f5;
+      color: #333;
+      font-weight: 600;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+    }
+
+    .modal-content {
+      background: #ffffff;
+      border-radius: 16px;
+      width: 90%;
+      max-width: 520px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+      animation: popIn 0.3s ease-in-out;
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0.9); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .modal-header {
+      background: linear-gradient(to right, #1a73e8, #4285f4);
+      padding: 20px;
+      color: white;
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .modal-body {
+      padding: 24px;
+      background: #f7faff;
+    }
+
+    .modal-body input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 14px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      box-sizing: border-box;
+      transition: border-color 0.2s;
+    }
+
+    .modal-body input:focus {
+      border-color: #1a73e8;
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.2);
+    }
+
+    .modal-footer {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      padding: 16px 24px;
+      background: #f1f3f4;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    .modal-footer button {
+      padding: 10px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.2s ease-in-out;
+    }
+
+    .modal-footer .save-btn { background-color: #4caf50; color: white; }
+    .modal-footer .save-btn:hover { background-color: #388e3c; }
+    .modal-footer .cancel-btn { background-color: #f44336; color: white; }
+    .modal-footer .cancel-btn:hover { background-color: #d32f2f; }
+
+    .selected-row {
+      background-color: #e3f2fd;
+    }
+
+    @media screen and (max-width: 768px) {
+      .topbar h2 {
+        font-size: 18px;
+      }
+      .action-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+    .dashboard-table td {
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 140px; /* Adjust per column type */
+  cursor: default;
+}
+
+.dashboard-table td:hover {
+  background-color: #f5faff;
+}
+
+.dashboard-table td[data-full]:hover::after {
+  content: attr(data-full);
+  position: absolute;
+  white-space: normal;
+  background: #333;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 4px;
+  top: 100%;
+  left: 0;
+  z-index: 9999;
+  min-width: 160px;
+  max-width: 400px;
+  font-size: 13px;
+  pointer-events: none;
+  opacity: 0.95;
+}
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Top Bar -->
+  <div class="topbar">
+    <img src="images/ue-logo.png" alt="UE Logo">
+    <h2>Welcome to Data Dashboard</h2>
+    <button ng-click="logout()">Logout</button>
+  </div>
+
+  <!-- Main Content -->
+  <div class="container">
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+      <button class="btn-add" ng-click="add()">+ Add</button>
+      <button class="btn-edit" ng-click="triggerEdit()">Edit</button>
+      <button class="btn-delete" ng-click="delete()">Delete</button>
+      <button class="btn-duplicate" ng-click="duplicate()">Duplicate</button>
+      <button class="btn-import" ng-click="import()">Import</button>
+      <button class="btn-export" ng-click="export()">Export</button>
+    </div>
+
+    <!-- Scrollable Table -->
+    <div class="scrollable-table-container">
+      <table class="dashboard-table">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Full Name</th>
+            <th>Father's Name</th>
+            <th>Nationality</th>
+            <th>Date of Birth</th>
+            <th>Birth Place</th>
+            <th>Home Address</th>
+            <th>Mobile</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <!-- <tbody>
+          <tr ng-repeat="record in records" ng-click="selectRecord(record)" ng-dblclick="editRecord(record)"
+            ng-class="{'selected-row': record === selectedRecord}">
+            <td>{{record.id}}</td>
+            <td>{{record.name}}</td>
+            <td>{{record.father}}</td>
+            <td>{{record.nationality}}</td>
+            <td>{{record.dobFormatted}}</td>
+            <td>{{record.birthplace}}</td>
+            <td>{{record.address}}</td>
+            <td>{{record.mobile}}</td>
+            <td>{{record.email}}</td>
+          </tr>
+        </tbody> -->
+        <tbody>
+<tr ng-repeat="record in records"
+    ng-click="selectRecord(record, $event)"
+    ng-dblclick="editRecord(record)"
+    ng-class="{'selected-row': selectedRecords.includes(record)}">
+
+
+    <td data-full="{{record.id}}">{{record.id}}</td>
+    <td data-full="{{record.name}}">{{record.name}}</td>
+    <td data-full="{{record.father}}">{{record.father}}</td>
+    <td data-full="{{record.nationality}}">{{record.nationality}}</td>
+    <td data-full="{{record.dobFormatted}}">{{record.dobFormatted}}</td>
+    <td data-full="{{record.birthplace}}">{{record.birthplace}}</td>
+    <td data-full="{{record.address}}">{{record.address}}</td>
+    <td data-full="{{record.mobile}}">{{record.mobile}}</td>
+    <td data-full="{{record.email}}">{{record.email}}</td>
+
+  </tr>
+</tbody>
+
+      </table>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal-overlay" ng-show="showAddModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        {{ editing ? 'Edit Record' : 'Add New Record' }}
+      </div>
+      <div class="modal-body">
+        <input type="text" placeholder="Full Name" ng-model="newRecord.name" />
+        <input type="text" placeholder="Father's Name" ng-model="newRecord.father" />
+        <input type="text" placeholder="Nationality" ng-model="newRecord.nationality" />
+        <input type="date" ng-model="newRecord.dob" />
+        <input type="text" placeholder="Birth Place" ng-model="newRecord.birthplace" />
+        <input type="text" placeholder="Home Address" ng-model="newRecord.address" />
+        <input type="text" placeholder="Mobile" ng-model="newRecord.mobile" />
+        <input type="email" placeholder="Email" ng-model="newRecord.email" />
+      </div>
+      <div class="modal-footer">
+        <button class="save-btn" ng-click="saveRecord()">Save</button>
+        <button class="cancel-btn" ng-click="cancelAdd()">Cancel</button>
+      </div>
+    </div>
+  </div>
+  <input type="file" id="importFile" style="display: none;" accept=".csv"
+       onchange="angular.element(this).scope().importFileChanged(this)" />
+
+
+</body>
+
+</html>

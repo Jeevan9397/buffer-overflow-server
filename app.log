@@ -59,3 +59,252 @@ Server has been successfully started on port 8080
 (2025-06-21 08:05:40) [INFO    ] Response: 0x7f354c004c40 /api/hello 200 0
 (2025-06-21 08:05:46) [INFO    ] Request: 192.168.178.154:53639 0x7f354c0037f0 HTTP/1.1 GET /
 (2025-06-21 08:05:46) [INFO    ] Response: 0x7f354c0037f0 / 200 0
+nohup: ignoring input
+2025-06-21 19:30:19 Server starting
+2025-06-21 19:30:19 Server starting
+Server listening on port 8080
+(2025-06-21 17:30:19) [INFO    ] Crow/master server is running at http://0.0.0.0:8080 using 4 threads
+(2025-06-21 17:30:19) [INFO    ] Call `app.loglevel(crow::LogLevel::Warning)` to hide Info level logs.
+(2025-06-21 17:33:28) [INFO    ] Request: 192.168.178.168:57336 0xadf410 HTTP/1.1 GET /health
+(2025-06-21 17:33:28) [INFO    ] Response: 0xadf410 /health 200 0
+(2025-06-21 17:37:02) [INFO    ] Request: 192.168.178.168:43372 0x7f3694000c20 HTTP/1.1 POST /api/login
+(2025-06-21 17:37:02) [ERROR   ] An uncaught exception occurred: invalid json object
+(2025-06-21 17:37:02) [INFO    ] Response: 0x7f3694000c20 /api/login 500 0
+(2025-06-21 17:37:27) [INFO    ] Request: 192.168.178.168:36228 0x7f3694002260 HTTP/1.1 POST /api/login
+(2025-06-21 17:37:27) [ERROR   ] An uncaught exception occurred: invalid json object
+(2025-06-21 17:37:27) [INFO    ] Response: 0x7f3694002260 /api/login 500 0
+2025-06-21 19:38:05 GET /api/customers
+(2025-06-21 17:38:05) [INFO    ] Request: 192.168.178.168:51736 0x7f3694000c20 HTTP/1.1 GET /api/customers
+2025-06-21 19:38:05 GET /api/customers
+(2025-06-21 17:38:05) [INFO    ] Response: 0x7f3694000c20 /api/customers 200 0
+(2025-06-21 17:39:35) [INFO    ] Request: 192.168.178.168:59092 0x7f3694002260 HTTP/1.1 POST /api/login
+2025-06-21 19:39:35 POST /api/login user=jeevan1 fail
+2025-06-21 19:39:35 POST /api/login user=jeevan1 fail
+(2025-06-21 17:39:35) [INFO    ] Response: 0x7f3694002260 /api/login 401 0
+nohup: ignoring input
+2025-06-21 19:40:46 Server starting
+2025-06-21 19:40:46 Server starting
+Server listening on port 8080
+(2025-06-21 17:40:46) [ERROR   ] Failed to bind to 0.0.0.0:0 - Address already in use
+(2025-06-21 17:40:46) [ERROR   ] Server startup failed. Aborting run().
+2025-06-21 19:40:46 Server stopping
+2025-06-21 19:40:46 Server stopping
+nohup: ignoring input
+2025-06-21 19:41:18 Server starting
+2025-06-21 19:41:18 Server starting
+Server listening on port 8080
+(2025-06-21 17:41:18) [INFO    ] Crow/master server is running at http://0.0.0.0:8080 using 4 threads
+(2025-06-21 17:41:18) [INFO    ] Call `app.loglevel(crow::LogLevel::Warning)` to hide Info level logs.
+2025-06-21 19:41:46 POST /api/login user=jeevan3 fail
+(2025-06-21 17:41:46) [INFO    ] Request: 192.168.178.168:52086 0x6c1410 HTTP/1.1 POST /api/login
+2025-06-21 19:41:46 POST /api/login user=jeevan3 fail
+(2025-06-21 17:41:46) [INFO    ] Response: 0x6c1410 /api/login 401 0
+nohup: ignoring input
+2025-06-21 20:42:34 Server starting
+2025-06-21 20:42:34 Server starting
+Server listening on port 8080
+(2025-06-21 18:42:34) [INFO    ] Crow/master server is running at http://0.0.0.0:8080 using 4 threads
+(2025-06-21 18:42:34) [INFO    ] Call `app.loglevel(crow::LogLevel::Warning)` to hide Info level logs.
+(2025-06-21 18:43:04) [INFO    ] Request: 192.168.178.168:45400 0x6e5410 HTTP/1.1 POST /api/login
+2025-06-21 20:43:04 POST /api/login user=jeevan3 fail
+2025-06-21 20:43:04 POST /api/login user=jeevan3 fail
+(2025-06-21 18:43:04) [INFO    ] Response: 0x6e5410 /api/login 401 0
+2025-06-21 20:44:50 POST /api/login user=jeevan3 fail
+(2025-06-21 18:44:50) [INFO    ] Request: 192.168.178.168:50100 0x7f1028000c20 HTTP/1.1 POST /api/login
+2025-06-21 20:44:50 POST /api/login user=jeevan3 fail
+(2025-06-21 18:44:50) [INFO    ] Response: 0x7f1028000c20 /api/login 401 0
+nohup: ignoring input
+2025-06-21 20:55:53 Server starting
+2025-06-21 20:55:53 Server starting
+Server listening on port 8080
+(2025-06-21 18:55:53) [INFO    ] Crow/master server is running at http://0.0.0.0:8080 using 4 threads
+(2025-06-21 18:55:53) [INFO    ] Call `app.loglevel(crow::LogLevel::Warning)` to hide Info level logs.
+2025-06-21 20:56:26 POST /api/login user=jeevan fail
+(2025-06-21 18:56:26) [INFO    ] Request: 192.168.178.168:40282 0x9ed410 HTTP/1.1 POST /api/login
+2025-06-21 20:56:26 POST /api/login user=jeevan fail
+(2025-06-21 18:56:26) [INFO    ] Response: 0x9ed410 /api/login 401 0
+2025-06-21 20:57:50 POST /api/login user=jeevan fail
+(2025-06-21 18:57:50) [INFO    ] Request: 192.168.178.168:49844 0x7f2858000c20 HTTP/1.1 POST /api/login
+2025-06-21 20:57:50 POST /api/login user=jeevan fail
+(2025-06-21 18:57:50) [INFO    ] Response: 0x7f2858000c20 /api/login 401 0
+2025-06-21 21:05:52 POST /api/login user=jeevan success
+(2025-06-21 19:05:52) [INFO    ] Request: 192.168.178.168:54526 0x7f2858002260 HTTP/1.1 POST /api/login
+2025-06-21 21:05:52 POST /api/login user=jeevan success
+(2025-06-21 19:05:52) [INFO    ] Response: 0x7f2858002260 /api/login 200 0
+2025-06-21 21:08:42 GET /api/customers
+(2025-06-21 19:08:42) [INFO    ] Request: 192.168.178.168:49206 0x7f2858000c20 HTTP/1.1 GET /api/customers
+2025-06-21 21:08:42 GET /api/customers
+(2025-06-21 19:08:42) [INFO    ] Response: 0x7f2858000c20 /api/customers 200 0
+(2025-06-21 19:11:18) [INFO    ] Request: 192.168.178.168:42276 0x7f2858002260 HTTP/1.1 POST /api/customers
+(2025-06-21 19:11:18) [ERROR   ] An uncaught exception occurred: invalid json object
+(2025-06-21 19:11:18) [INFO    ] Response: 0x7f2858002260 /api/customers 500 0
+2025-06-21 21:13:05 Added customer id=1
+(2025-06-21 19:13:05) [INFO    ] Request: 192.168.178.168:35844 0x7f2858000c20 HTTP/1.1 POST /api/customers
+2025-06-21 21:13:05 Added customer id=1
+(2025-06-21 19:13:05) [INFO    ] Response: 0x7f2858000c20 /api/customers 201 0
+2025-06-21 21:13:38 GET /api/customers
+(2025-06-21 19:13:38) [INFO    ] Request: 192.168.178.168:49256 0x7f2858002260 HTTP/1.1 GET /api/customers
+2025-06-21 21:13:38 GET /api/customers
+(2025-06-21 19:13:38) [INFO    ] Response: 0x7f2858002260 /api/customers 200 0
+(2025-06-21 19:32:39) [INFO    ] Request: 192.168.178.168:51930 0x7f2858000c20 HTTP/1.1 PUT /api/customers/1
+2025-06-21 21:32:39 Updated customer id=1
+2025-06-21 21:32:39 Updated customer id=1
+(2025-06-21 19:32:39) [INFO    ] Response: 0x7f2858000c20 /api/customers/1 200 0
+2025-06-21 21:32:46 GET /api/customers
+(2025-06-21 19:32:46) [INFO    ] Request: 192.168.178.168:51932 0x7f2858002260 HTTP/1.1 GET /api/customers
+2025-06-21 21:32:46 GET /api/customers
+(2025-06-21 19:32:46) [INFO    ] Response: 0x7f2858002260 /api/customers 200 0
+(2025-06-21 19:34:51) [INFO    ] Request: 192.168.178.168:43624 0x7f2858000c20 HTTP/1.1 POST /api/customers
+2025-06-21 21:34:51 Added customer id=2
+2025-06-21 21:34:51 Added customer id=2
+(2025-06-21 19:34:51) [INFO    ] Response: 0x7f2858000c20 /api/customers 201 0
+2025-06-21 21:34:59 GET /api/customers
+(2025-06-21 19:34:59) [INFO    ] Request: 192.168.178.168:54538 0x7f2858002260 HTTP/1.1 GET /api/customers
+2025-06-21 21:34:59 GET /api/customers
+(2025-06-21 19:34:59) [INFO    ] Response: 0x7f2858002260 /api/customers 200 0
+(2025-06-21 19:36:48) [INFO    ] Request: 192.168.178.168:39416 0x7f2858000c20 HTTP/1.1 DELETE /api/customers/1
+2025-06-21 21:36:48 Deleted customer id=1
+2025-06-21 21:36:48 Deleted customer id=1
+(2025-06-21 19:36:48) [INFO    ] Response: 0x7f2858000c20 /api/customers/1 200 0
+2025-06-21 21:37:33 GET /api/customers
+(2025-06-21 19:37:33) [INFO    ] Request: 192.168.178.168:43450 0x7f2858002260 HTTP/1.1 GET /api/customers
+2025-06-21 21:37:33 GET /api/customers
+(2025-06-21 19:37:33) [INFO    ] Response: 0x7f2858002260 /api/customers 200 0
+2025-06-21 21:38:40 GET /api/export
+(2025-06-21 19:38:40) [INFO    ] Request: 192.168.178.168:40556 0x7f2858000c20 HTTP/1.1 GET /api/export
+2025-06-21 21:38:40 GET /api/export
+(2025-06-21 19:38:40) [INFO    ] Response: 0x7f2858000c20 /api/export 200 0
+(2025-06-22 20:48:22) [INFO    ] Request: 192.168.178.129:54528 0x7f2858002260 HTTP/1.1 GET /
+(2025-06-22 20:48:22) [INFO    ] Response: 0x7f2858002260 / 200 0
+(2025-06-22 20:48:24) [INFO    ] Request: 192.168.178.129:54528 0x7f2858002260 HTTP/1.1 GET /
+(2025-06-22 20:48:24) [INFO    ] Response: 0x7f2858002260 / 200 0
+nohup: ignoring input
+2025-06-22 22:58:53 Server starting
+2025-06-22 22:58:53 Server starting
+Server listening on port 8080
+(2025-06-22 20:58:53) [ERROR   ] Failed to bind to 0.0.0.0:0 - Address already in use
+(2025-06-22 20:58:53) [ERROR   ] Server startup failed. Aborting run().
+2025-06-22 22:58:53 Server stopping
+2025-06-22 22:58:53 Server stopping
+2025-06-30 14:24:07 Server starting
+2025-06-30 14:28:22 Server stopping
+2025-06-30 14:29:38 Server starting
+2025-06-30 23:39:26 Server stopping
+2025-06-30 23:41:11 Server starting
+2025-06-30 23:57:50 Server stopping
+2025-06-30 23:57:59 Server starting
+2025-07-01 11:14:14 Server starting
+2025-07-01 11:40:35 Server stopping
+2025-07-01 11:40:43 Server starting
+2025-07-01 12:08:36 Server stopping
+2025-07-01 12:08:51 Server starting
+2025-07-01 13:01:28 Server stopping
+2025-07-01 13:01:52 Server starting
+2025-07-01 17:00:07 Server stopping
+2025-07-01 17:06:26 Server starting
+2025-07-01 17:16:01 Server stopping
+2025-07-01 17:17:02 Server starting
+2025-07-01 17:17:33 POST /api/login user=varun success
+2025-07-01 17:17:52 POST /api/login user=varun fail
+2025-07-01 17:18:02 POST /api/login user=varun success
+2025-07-01 17:19:57 POST /api/login user=varun fail
+2025-07-01 17:28:29 POST /api/login user=varun success
+2025-07-01 17:28:59 POST /api/login user=varun fail
+2025-07-01 17:29:03 POST /api/login user=varun fail
+2025-07-01 17:29:10 POST /api/login user=varun success
+2025-07-01 17:38:08 POST /api/login user=Varun fail
+2025-07-01 17:38:16 POST /api/login user=varun success
+2025-07-02 11:27:03 Server starting
+2025-07-02 11:27:19 Server stopping
+2025-07-02 11:27:35 Server starting
+2025-07-02 11:27:52 POST /api/login user=ravi fail
+2025-07-02 11:28:02 POST /api/login user=ravi success
+2025-07-02 11:29:56 POST /api/login user=ravi success
+2025-07-02 18:19:27 Server starting
+2025-07-02 18:19:51 POST /api/login user=ravi success
+2025-07-02 19:33:24 Added customer id=3
+2025-07-02 19:49:44 Added customer id=4
+2025-07-02 20:32:42 Server stopping
+2025-07-02 20:32:52 Server starting
+2025-07-02 20:33:32 Added customer id=1
+2025-07-02 21:17:44 Server stopping
+2025-07-02 21:17:49 Server starting
+2025-07-02 21:17:59 Server stopping
+2025-07-02 21:18:18 Server starting
+2025-07-02 21:18:34 POST /api/login user=jvn success
+2025-07-02 21:24:10 Server stopping
+2025-07-02 21:24:16 Server starting
+2025-07-02 21:24:40 POST /api/login user=jvn success
+2025-07-02 21:41:17 Server stopping
+2025-07-02 21:42:33 Server starting
+2025-07-02 21:43:05 POST /api/login user=jvn success
+2025-07-02 22:42:16 Server stopping
+2025-07-02 22:44:30 Server starting
+2025-07-02 22:45:12 Server stopping
+2025-07-02 22:45:18 Server starting
+2025-07-02 22:49:58 Server stopping
+2025-07-02 22:51:17 Server starting
+2025-07-02 23:02:48 Server stopping
+2025-07-02 23:04:55 Server starting
+2025-07-02 23:05:16 POST /api/login user=jvn success
+2025-07-02 23:12:39 Added customer id=2
+2025-07-02 23:30:21 Added customer id=3
+2025-07-02 23:48:54 Added customer id=4
+2025-07-02 23:50:16 Added customer id=5
+2025-07-03 00:00:44 POST /api/login user=ravi success
+2025-07-03 07:21:53 Server starting
+2025-07-03 07:22:07 POST /api/login user=jvn success
+2025-07-03 07:42:16 Server stopping
+2025-07-03 07:44:50 Server starting
+2025-07-03 07:45:18 POST /api/login user=jvn success
+2025-07-03 07:45:55 Updated customer id=2
+2025-07-03 07:46:26 Updated customer id=2
+2025-07-03 07:47:55 Added customer id=6
+2025-07-03 07:48:32 Added customer id=7
+2025-07-03 07:49:02 Added customer id=8
+2025-07-03 07:49:34 Added customer id=9
+2025-07-03 08:00:04 Updated customer id=1
+2025-07-03 08:05:47 Added customer id=10
+2025-07-03 08:16:57 Added customer id=11
+2025-07-03 08:17:22 Added customer id=12
+2025-07-03 08:31:15 Updated customer id=1
+2025-07-03 08:31:36 Updated customer id=1
+2025-07-03 08:56:05 Server stopping
+2025-07-03 08:57:19 Server starting
+2025-07-03 08:57:46 POST /api/login user=jvn success
+2025-07-03 08:57:57 Deleted customer id=8, name="ss"
+2025-07-03 08:59:09 Deleted customer id=9, name="df"
+2025-07-03 09:26:51 Server stopping
+2025-07-03 09:27:59 Server starting
+2025-07-03 09:28:14 POST /api/login user=jvn success
+2025-07-03 09:28:45 Exporting full customer list
+2025-07-03 09:29:05 Exporting full customer list
+2025-07-03 10:30:21 Exporting full customer list
+2025-07-03 10:41:59 Exporting selected records: 1,2,3
+2025-07-03 10:42:23 Deleted customer id=12, name="fff"
+2025-07-03 10:42:23 Deleted customer id=11, name="hh"
+2025-07-03 10:42:34 Exporting selected records: 3,4
+2025-07-03 10:49:09 Exporting selected records: 3,4
+2025-07-03 10:49:48 Exporting full customer list
+2025-07-03 11:19:16 Server stopping
+2025-07-03 11:21:52 Server starting
+2025-07-03 11:22:15 POST /api/login user=jvn success
+2025-07-03 11:23:28 Deleted customer id=2, name="Var"
+2025-07-03 11:23:28 Deleted customer id=1, name="jeevannnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn"
+2025-07-03 11:23:28 Deleted customer id=3, name="Vann"
+2025-07-03 11:23:28 Deleted customer id=10, name="aad"
+2025-07-03 11:23:28 Deleted customer id=6, name="jeev"
+2025-07-03 11:23:28 Deleted customer id=7, name="abc"
+2025-07-03 11:23:28 Deleted customer id=4, name="jeevan1"
+2025-07-03 11:23:28 Deleted customer id=5, name="jeevan"
+2025-07-03 11:23:36 Deleted customer id=6, name="jeev"
+2025-07-03 11:23:36 Deleted customer id=3, name="Vann"
+2025-07-03 12:00:55 Server stopping
+2025-07-03 12:01:56 Server starting
+2025-07-03 12:02:39 POST /api/login user=jvn success
+2025-07-03 12:03:22 Added customer id=1
+2025-07-03 12:03:29 Updated customer id=1
+2025-07-03 12:39:08 Server stopping
+2025-07-03 12:51:03 Server starting
+2025-07-03 12:51:22 POST /api/login user=jvn success
+2025-07-03 12:52:00 Exporting full customer list

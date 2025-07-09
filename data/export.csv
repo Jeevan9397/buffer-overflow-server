@@ -1,0 +1,9 @@
+HTTP/1.1 200 OK
+Content-Disposition: attachment; filename="customers.csv"
+Content-Type: text/csv
+Content-Length: 126
+Server: Crow/master
+Date: Sat, 21 Jun 2025 19:38:40 GMT
+Connection: Keep-Alive
+
+2,Jeevan,Varu,Wonder,1990-01-01,Village,District,Province,123 Main St,Metropolis,HomeDist,HomeProv,555-1234,alice@example.com
