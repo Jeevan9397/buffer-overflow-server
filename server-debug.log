@@ -1,0 +1,42 @@
+2025-07-03 12:51:03 Server starting
+Server listening on http://127.0.0.1:8080
+(2025-07-03 10:51:03) [INFO    ] Crow/master server is running at http://0.0.0.0:8080 using 4 threads
+(2025-07-03 10:51:03) [INFO    ] Call `app.loglevel(crow::LogLevel::Warning)` to hide Info level logs.
+(2025-07-03 10:51:13) [INFO    ] Request: 10.0.2.2:59081 0x17834a0 HTTP/1.1 GET /
+(2025-07-03 10:51:13) [INFO    ] Response: 0x17834a0 / 200 0
+(2025-07-03 10:51:13) [INFO    ] Request: 10.0.2.2:59082 0x7f3550000c20 HTTP/1.1 GET /controllers.js
+(2025-07-03 10:51:13) [INFO    ] Response: 0x7f3550000c20 /controllers.js 200 0
+(2025-07-03 10:51:13) [INFO    ] Request: 10.0.2.2:59081 0x17834a0 HTTP/1.1 GET /app.js
+(2025-07-03 10:51:13) [INFO    ] Response: 0x17834a0 /app.js 200 0
+(2025-07-03 10:51:13) [INFO    ] Request: 10.0.2.2:59081 0x17834a0 HTTP/1.1 GET /partials/login.html
+(2025-07-03 10:51:13) [INFO    ] Response: 0x17834a0 /partials/login.html 200 0
+(2025-07-03 10:51:13) [INFO    ] Request: 10.0.2.2:59081 0x17834a0 HTTP/1.1 GET /all.min.css
+(2025-07-03 10:51:13) [INFO    ] Response: 0x17834a0 /all.min.css 200 0
+(2025-07-03 10:51:22) [INFO    ] Request: 10.0.2.2:59092 0x7f3550002260 HTTP/1.1 POST /api/login
+2025-07-03 12:51:22 POST /api/login user=jvn success
+(2025-07-03 10:51:22) [INFO    ] Response: 0x7f3550002260 /api/login 200 0
+(2025-07-03 10:51:22) [INFO    ] Request: 10.0.2.2:59092 0x7f3550002260 HTTP/1.1 GET /partials/dashboard.html
+(2025-07-03 10:51:22) [INFO    ] Response: 0x7f3550002260 /partials/dashboard.html 200 0
+(2025-07-03 10:51:22) [INFO    ] Request: 10.0.2.2:59092 0x7f3550002260 HTTP/1.1 GET /all.min.css
+(2025-07-03 10:51:22) [INFO    ] Response: 0x7f3550002260 /all.min.css 200 0
+(2025-07-03 10:51:22) [INFO    ] Request: 10.0.2.2:59092 0x7f3550002260 HTTP/1.1 GET /api/customers(2025-07-03 10:51:22) [INFO    ] Request: 10.0.2.2:59093 0x7f35500037f0 HTTP/1.1 GET /images/ue-logo.png
+(2025-07-03 10:51:22) [INFO    ] Response: 0x7f35500037f0 /images/ue-logo.png 200 0
+
+(2025-07-03 10:51:22) [INFO    ] Response: 0x7f3550002260 /api/customers 200 0
+(2025-07-03 10:52:00) [INFO    ] Request: 10.0.2.2:59109 0x7f3550004c40 HTTP/1.1 GET /api/export
+2025-07-03 12:52:00 Exporting full customer list
+(2025-07-03 10:52:00) [INFO    ] Response: 0x7f3550004c40 /api/export 200 0
+(2025-07-03 11:14:31) [INFO    ] Request: 10.0.2.2:59278 0x7f35500037f0 HTTP/1.1 GET /
+(2025-07-03 11:14:31) [INFO    ] Response: 0x7f35500037f0 / 200 0
+(2025-07-03 11:14:31) [INFO    ] Request: 10.0.2.2:59279 0x7f3550002260 HTTP/1.1 GET /controllers.js
+(2025-07-03 11:14:31) [INFO    ] Response: 0x7f3550002260 /controllers.js 200 0
+(2025-07-03 11:14:31) [INFO    ] Request: 10.0.2.2:59278 0x7f35500037f0 HTTP/1.1 GET /app.js
+(2025-07-03 11:14:31) [INFO    ] Response: 0x7f35500037f0 /app.js 200 0
+(2025-07-03 11:14:31) [INFO    ] Request: 10.0.2.2:59278 0x7f35500037f0 HTTP/1.1 GET /partials/dashboard.html
+(2025-07-03 11:14:31) [INFO    ] Response: 0x7f35500037f0 /partials/dashboard.html 200 0
+(2025-07-03 11:14:31) [INFO    ] Request: 10.0.2.2:59279 0x7f3550002260 HTTP/1.1 GET /all.min.css
+(2025-07-03 11:14:31) [INFO    ] Response: 0x7f3550002260 /all.min.css 200 0
+(2025-07-03 11:14:31) [INFO    ] Request: 10.0.2.2:59279 0x7f3550002260 HTTP/1.1 GET /api/customers
+(2025-07-03 11:14:31) [INFO    ] Response: 0x7f3550002260 /api/customers 200 0
+(2025-07-03 11:14:31) [INFO    ] Request: 10.0.2.2:59278 0x7f35500037f0 HTTP/1.1 GET /images/ue-logo.png
+(2025-07-03 11:14:31) [INFO    ] Response: 0x7f35500037f0 /images/ue-logo.png 200 0

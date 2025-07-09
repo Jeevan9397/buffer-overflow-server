@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="dashboardApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="all.min.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f5f6fa;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .login-card {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      width: 320px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .login-card h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .login-card input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .login-card button {
+      width: 100%;
+      padding: 10px;
+      background-color: #0d6efd;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .login-card .error {
+      color: red;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .password-container {
+      position: relative;
+    }
+
+    .password-container i {
+      position: absolute;
+      top: 38px;
+      right: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body ng-controller="LoginCtrl">
+  <form ng-submit="login()" class="login-card">
+    <h2>Please Sign In</h2>
+
+    <div>
+      <label>Username</label>
+      <input ng-model="user.user" type="text" placeholder="Enter username" required />
+    </div>
+
+    <div class="password-container">
+      <label>Password</label>
+      <input ng-model="user.pass"
+             type="{{user.showPass ? 'text' : 'password'}}"
+             placeholder="Enter password" required />
+      <i class="fa"
+         ng-class="{'fa-eye': !user.showPass, 'fa-eye-slash': user.showPass}"
+         ng-click="togglePass()"></i>
+    </div>
+
+    <button type="submit">Login</button>
+
+    <p class="error" ng-if="error">{{error}}</p>
+  </form>
+</body>
+</html>
